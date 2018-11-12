@@ -9,14 +9,34 @@ config:
   showdiff: false
   workdir: ~/.config/dotdrop
 dotfiles:
+  f_config:
+    dst: ~/.config/i3/config
+    src: config/i3/config
+  f_tmux.conf:
+    dst: ~/.tmux.conf
+    src: tmux.conf
   f_vimrc:
     dst: ~/.vimrc
     src: vimrc
   f_xinitrc:
     dst: ~/.xinitrc
     src: xinitrc
+  f_xmodmap:
+    dst: ~/.Xmodmap
+    src: Xmodmap
+  f_xresources:
+    dst: ~/.Xresources
+    src: Xresources
+  f_zshrc:
+    dst: ~/.zshrc
+    src: zshrc
 profiles:
   gimli:
     dotfiles:
     - f_vimrc
     - f_xinitrc
+    - f_zshrc
+    - f_xmodmap
+    - f_tmux.conf
+    - f_config
+    - f_xresources
