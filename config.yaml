@@ -1,3 +1,7 @@
+actions:
+  vundle: vim +PluginInstall +qall
+trans:
+  gpg: gpg -q --for-your-eyes-only --no-tty -d {0} > {1}
 config:
   backup: true
   banner: true
@@ -9,13 +13,23 @@ config:
   showdiff: false
   workdir: ~/.config/dotdrop
 dotfiles:
+  f_alias:
+    dst: ~/.alias
+    src: alias
+    trans:
+      - gpg
   f_config:
     dst: ~/.config/i3/config
     src: config/i3/config
+  f_i3status.conf:
+    dst: ~/.i3status.conf
+    src: i3status.conf
   f_tmux.conf:
     dst: ~/.tmux.conf
     src: tmux.conf
   f_vimrc:
+    actions:
+      - vundle
     dst: ~/.vimrc
     src: vimrc
   f_xinitrc:
@@ -40,3 +54,5 @@ profiles:
     - f_tmux.conf
     - f_config
     - f_xresources
+    - f_i3status.conf
+    - f_alias
