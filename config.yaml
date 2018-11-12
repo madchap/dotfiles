@@ -1,7 +1,5 @@
 actions:
   vundle: vim +PluginInstall +qall
-trans:
-  gpg: gpg -q --for-your-eyes-only --no-tty -d {0} > {1}
 config:
   backup: true
   banner: true
@@ -13,14 +11,23 @@ config:
   showdiff: false
   workdir: ~/.config/dotdrop
 dotfiles:
+  f_70-u2f.rules:
+    dst: /etc/udev/rules.d/70-u2f.rules
+    src: etc/udev/rules.d/70-u2f.rules
   f_alias:
     dst: ~/.alias
     src: alias
     trans:
-      - gpg
+    - gpg
+  f_compton.conf:
+    dst: ~/.compton.conf
+    src: compton.conf
   f_config:
     dst: ~/.config/i3/config
     src: config/i3/config
+  f_gtk.css:
+    dst: ~/.config/gtk-3.0/gtk.css
+    src: config/gtk-3.0/gtk.css
   f_i3status.conf:
     dst: ~/.i3status.conf
     src: i3status.conf
@@ -29,7 +36,7 @@ dotfiles:
     src: tmux.conf
   f_vimrc:
     actions:
-      - vundle
+    - vundle
     dst: ~/.vimrc
     src: vimrc
   f_xinitrc:
@@ -38,6 +45,9 @@ dotfiles:
   f_xmodmap:
     dst: ~/.Xmodmap
     src: Xmodmap
+  f_xrandr.sh:
+    dst: ~/.i3/scripts/xrandr.sh
+    src: i3/scripts/xrandr.sh
   f_xresources:
     dst: ~/.Xresources
     src: Xresources
@@ -56,3 +66,9 @@ profiles:
     - f_xresources
     - f_i3status.conf
     - f_alias
+    - f_gtk.css
+    - f_70-u2f.rules
+    - f_compton.conf
+    - f_xrandr.sh
+trans:
+  gpg: gpg -q --for-your-eyes-only --no-tty -d {0} > {1}
