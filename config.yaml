@@ -70,5 +70,20 @@ profiles:
     - f_70-u2f.rules
     - f_compton.conf
     - f_xrandr.sh
+  tower:
+    dotfiles:
+    - f_vimrc
+    - f_xinitrc
+    - f_zshrc
+    - f_xmodmap
+    - f_tmux.conf
+    - f_config
+    - f_xresources
+    - f_i3status.conf
+    - f_alias
+    - f_gtk.css
+    - f_70-u2f.rules
+    - f_compton.conf
+    - f_xrandr.sh
 trans:
   gpg: gpg -q --for-your-eyes-only --no-tty -d {0} > {1}
