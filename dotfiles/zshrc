@@ -121,6 +121,9 @@ sh ~/gitrepos/misc/setxkbmap
 
 xmodmap ~/.Xmodmap
 
+# rid of the PC speaker awful beep
+xset -b
+
 # load custom functions
 source /home/fblaise/gitrepos/ide-infra/zsh/fbi_zsh_functions
 
