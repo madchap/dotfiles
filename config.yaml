@@ -5,6 +5,7 @@ config:
   banner: true
   create: true
   dotpath: dotfiles
+  ignoreempty: false
   keepdot: false
   link_by_default: false
   longkey: false
@@ -31,6 +32,9 @@ dotfiles:
   f_i3status.conf:
     dst: ~/.i3status.conf
     src: i3status.conf
+  f_tmux-macos.conf:
+    dst: ~/.tmux-macos.conf
+    src: tmux-macos.conf
   f_tmux.conf:
     dst: ~/.tmux.conf
     src: tmux.conf
@@ -70,6 +74,13 @@ profiles:
     - f_70-u2f.rules
     - f_compton.conf
     - f_xrandr.sh
+  mbp2012:
+    dotfiles:
+    - f_vimrc
+    - f_zshrc
+    - f_tmux.conf
+    - f_alias
+    - f_tmux-macos.conf
   tower:
     dotfiles:
     - f_vimrc
