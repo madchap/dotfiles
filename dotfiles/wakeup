@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+pkill -9 gpg-agent
+gpgconf --launch gpg-agent

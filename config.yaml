@@ -35,6 +35,9 @@ dotfiles:
   f_karabiner.json:
     dst: ~/.config/karabiner/karabiner.json
     src: config/karabiner/karabiner.json
+  f_sleep:
+    dst: ~/.sleep
+    src: sleep
   f_tmux-macos.conf:
     dst: ~/.tmux-macos.conf
     src: tmux-macos.conf
@@ -46,6 +49,9 @@ dotfiles:
     - vundle
     dst: ~/.vimrc
     src: vimrc
+  f_wakeup:
+    dst: ~/.wakeup
+    src: wakeup
   f_xinitrc:
     dst: ~/.xinitrc
     src: xinitrc
@@ -85,6 +91,8 @@ profiles:
     - f_alias
     - f_tmux-macos.conf
     - f_karabiner.json
+    - f_wakeup
+    - f_sleep
   tower:
     dotfiles:
     - f_vimrc
