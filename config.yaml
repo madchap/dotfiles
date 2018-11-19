@@ -29,12 +29,18 @@ dotfiles:
   f_gtk.css:
     dst: ~/.config/gtk-3.0/gtk.css
     src: config/gtk-3.0/gtk.css
+  f_homebrew.gpg.gpg-agent.plist:
+    dst: ~/Library/LaunchAgents/homebrew.gpg.gpg-agent.plist
+    src: Library/LaunchAgents/homebrew.gpg.gpg-agent.plist
   f_i3status.conf:
     dst: ~/.i3status.conf
     src: i3status.conf
   f_karabiner.json:
     dst: ~/.config/karabiner/karabiner.json
     src: config/karabiner/karabiner.json
+  f_link-ssh-auth-sock.plist:
+    dst: ~/Library/LaunchAgents/link-ssh-auth-sock.plist
+    src: Library/LaunchAgents/link-ssh-auth-sock.plist
   f_sleep:
     dst: ~/.sleep
     src: sleep
@@ -93,6 +99,8 @@ profiles:
     - f_karabiner.json
     - f_wakeup
     - f_sleep
+    - f_homebrew.gpg.gpg-agent.plist
+    - f_link-ssh-auth-sock.plist
   tower:
     dotfiles:
     - f_vimrc
