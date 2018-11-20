@@ -55,6 +55,9 @@ dotfiles:
     - vundle
     dst: ~/.vimrc
     src: vimrc
+  f_vimrc-osx-defaults:
+    dst: ~/.vimrc-osx-defaults
+    src: vimrc-osx-defaults
   f_wakeup:
     dst: ~/.wakeup
     src: wakeup
@@ -101,6 +104,7 @@ profiles:
     - f_sleep
     - f_homebrew.gpg.gpg-agent.plist
     - f_link-ssh-auth-sock.plist
+    - f_vimrc-osx-defaults
   tower:
     dotfiles:
     - f_vimrc

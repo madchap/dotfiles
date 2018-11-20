@@ -1,3 +1,8 @@
+{%@@ if 'mbp' in profile @@%}
+" import (copied) files from vim80 on osx
+source ~/.vimrc-osx-defaults
+{%@@ endif @@%}
+
 " Setting up Vundle - the vim plugin bundler
 let iCanHazVundle=1
 let vundle_readme=expand('~/.vim/bundle/vundle/README.md')
@@ -134,6 +139,3 @@ map <Leader>vp :VimuxPromptCommand<CR>
 map <Leader>vl :VimuxRunLastCommand<CR>
 " Zoom the tmux runner pane
 map <Leader>vz :VimuxZoomRunner<CR>
-
-" fixes the "damn, I can't delete chars with backspace!"
-set backspace=indent,eol,start
