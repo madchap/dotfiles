@@ -18,8 +18,6 @@ dotfiles:
   f_alias:
     dst: ~/.alias
     src: alias
-    trans:
-    - gpg
   f_compton.conf:
     dst: ~/.compton.conf
     src: compton.conf
