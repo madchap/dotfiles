@@ -21,6 +21,8 @@ export ZSH=~/.oh-my-zsh
 #ZSH_THEME="agnoster"
 ZSH_THEME="powerlevel9k/powerlevel9k"
 
+{%@@ if 'mbp' in profile @@%}
+# will not fight to get this on my home machine....
 # powerlevel9k options
 DEFAULT_FOREGROUND=154 DEFAULT_BACKGROUND=008
 # # DEFAULT_SEP_FOREGROUND=023
@@ -59,6 +61,7 @@ POWERLEVEL9K_RIGHT_SUBSEGMENT_SEPARATOR=""
 # POWERLEVEL9K_VCS_UNTRACKED_BACKGROUND="$DEFAULT_BACKGROUND"
 # POWERLEVEL9K_VCS_UNTRACKED_FOREGROUND=yellow
 # POWERLEVEL9K_ROOT_INDICATOR_FOREGROUND=magenta
+{%@@ endif @@%}
 
 # Uncomment the following line to use case-sensitive completion.
 CASE_SENSITIVE="true"
