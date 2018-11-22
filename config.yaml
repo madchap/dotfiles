@@ -27,6 +27,9 @@ dotfiles:
   f_config_powerline_colorschemes_tmux_default.json:
     dst: ~/.config/powerline/colorschemes/tmux/default.json
     src: config/powerline/colorschemes/tmux/default.json
+  f_config_powerline_config_files_colors.json:
+    dst: ~/.config/powerline/config_files/colors.json
+    src: config/powerline/config_files/colors.json
   f_config_powerline_themes_tmux_default.json:
     dst: ~/.config/powerline/themes/tmux/default.json
     src: config/powerline/themes/tmux/default.json
@@ -115,6 +118,7 @@ profiles:
     - f_library_application-support_code_user_settings.json
     - f_config_powerline_colorschemes_tmux_default.json
     - f_config_powerline_themes_tmux_default.json
+    - f_config_powerline_config_files_colors.json
   tower:
     dotfiles:
     - f_vimrc
