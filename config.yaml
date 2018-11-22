@@ -134,5 +134,6 @@ profiles:
     - f_70-u2f.rules
     - f_compton.conf
     - f_xrandr.sh
+    - f_tmux.conf
 trans:
   gpg: gpg -q --for-your-eyes-only --no-tty -d {0} > {1}
