@@ -102,6 +102,9 @@ profiles:
     - f_70-u2f.rules
     - f_compton.conf
     - f_xrandr.sh
+    - f_config_powerline_colorschemes_tmux_default.json
+    - f_config_powerline_themes_tmux_default.json
+    - f_config_powerline_config_files_colors.json
   mbp2012:
     dotfiles:
     - f_vimrc

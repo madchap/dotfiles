@@ -145,3 +145,4 @@ echo "SSH_AUTH_SOCK is set to $(echo $SSH_AUTH_SOCK)"
 {%@@ endif @@%}
 
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=243'
+echo UPDATESTARTUPTTY | gpg-connect-agent
