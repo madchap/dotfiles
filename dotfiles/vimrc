@@ -39,6 +39,7 @@ Plugin 'rodjek/vim-puppet'
 Plugin 'davidhalter/jedi-vim'
 {%@@ endif @@%}
 Plugin 'saltstack/salt-vim'
+Plugin 'wombat256.vim'
 
 if iCanHazVundle == 0
     echo "Installing Vundles, please ignore key map error messages"
@@ -52,9 +53,7 @@ filetype plugin indent on " load filetype plugins/indent settings
 
 " colorscheme solarized
 set t_Co=256
-{%@@ if 'mbp' not in profile @@%}
 colorscheme wombat256mod
-{%@@ endif @@%}
 syntax on                      " enable syntax
 
 :let mapleader = " "
@@ -72,9 +71,7 @@ set incsearch
 set noswapfile
 
 set cursorline
-highlight Cursor ctermfg=White ctermbg=Yellow cterm=bold
 set cursorcolumn
-highlight CursorColumn ctermfg=White ctermbg=Yellow cterm=bold
 
 " executes script
 :map <F6> :w<CR>:silent !chmod +x %:p<CR>:silent !%:p 2>&1 \| tee /tmp/%:t.tmp<CR>:pedit! +:42343234 /tmp/%:t.tmp<CR>:redraw!<CR><CR>n
