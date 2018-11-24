@@ -139,7 +139,7 @@ export SSH_AUTH_SOCKET=$HOME/.gnupg/S.gpg-agent.ssh
 echo "SSH_AUTH_SOCK is set to $(readlink $SSH_AUTH_SOCK)"
 {%@@ else @@%}
 xset -b
-source /home/fblaise/.oh-my-zsh/custom/plugins/zs-autosuggestions/zsh-autosuggestions.zsh
+source /home/fblaise/.oh-my-zsh/custom/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 source /home/fblaise/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 echo "SSH_AUTH_SOCK is set to $(echo $SSH_AUTH_SOCK)"
 {%@@ endif @@%}

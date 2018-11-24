@@ -40,6 +40,8 @@ Plugin 'davidhalter/jedi-vim'
 {%@@ endif @@%}
 Plugin 'saltstack/salt-vim'
 Plugin 'wombat256.vim'
+Plugin 'ctrlpvim/ctrlp.vim'
+Plugin 'Townk/vim-autoclose'
 
 if iCanHazVundle == 0
     echo "Installing Vundles, please ignore key map error messages"
