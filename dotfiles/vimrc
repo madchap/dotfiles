@@ -70,6 +70,7 @@ set noswapfile
 
 set cursorline
 set cursorcolumn
+set number
 
 " executes script
 :map <F6> :w<CR>:silent !chmod +x %:p<CR>:silent !%:p 2>&1 \| tee /tmp/%:t.tmp<CR>:pedit! +:42343234 /tmp/%:t.tmp<CR>:redraw!<CR><CR>n
@@ -139,7 +140,8 @@ map <Leader>n :NERDTreeToggle<CR>
 au BufNewFile *.py 0r ~/gitrepos/misc/scripts/vim_python_header.txt
 
 " vimux
-map <Leader>vp :VimuxPromptCommand<CR>
+map <Leader>vp :call VimuxPromptCommand("if [[ -z \"$VIRTUAL_ENV\" ]]; then thispy=python3; else thispy=\"$VIRTUAL_ENV/bin/python\"; fi ; $thispy " . bufname("%"))<CR>
+map <Leader>vv :VimuxPromptCommand<CR>
 " Run last command executed by VimuxRunCommand
 map <Leader>vl :VimuxRunLastCommand<CR>
 " Zoom the tmux runner pane

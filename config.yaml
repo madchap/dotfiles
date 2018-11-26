@@ -27,6 +27,9 @@ dotfiles:
   f_config_powerline_themes_tmux_default.json:
     dst: ~/.config/powerline/themes/tmux/default.json
     src: config/powerline/themes/tmux/default.json
+  f_config_powerline_themes_vim_default.json:
+    dst: ~/.config/powerline/themes/vim/default.json
+    src: config/powerline/themes/vim/default.json
   f_gtk.css:
     dst: ~/.config/gtk-3.0/gtk.css
     src: config/gtk-3.0/gtk.css
@@ -39,12 +42,6 @@ dotfiles:
   f_karabiner.json:
     dst: ~/.config/karabiner/karabiner.json
     src: config/karabiner/karabiner.json
-  f_vscode_user_settings_mac.json:
-    dst: ~/Library/Application Support/Code/User/settings.json
-    src: Library/Application Support/Code/User/settings.json
-  f_vscode_user_settings_linux.json:
-    dst: ~/.config/Code/User/settings.json
-    src: Library/Application Support/Code/User/settings.json
   f_link-ssh-auth-sock.plist:
     dst: ~/Library/LaunchAgents/link-ssh-auth-sock.plist
     src: Library/LaunchAgents/link-ssh-auth-sock.plist
@@ -65,6 +62,12 @@ dotfiles:
   f_vimrc-osx-defaults:
     dst: ~/.vimrc-osx-defaults
     src: vimrc-osx-defaults
+  f_vscode_user_settings_linux.json:
+    dst: ~/.config/Code/User/settings.json
+    src: Library/Application Support/Code/User/settings.json
+  f_vscode_user_settings_mac.json:
+    dst: ~/Library/Application Support/Code/User/settings.json
+    src: Library/Application Support/Code/User/settings.json
   f_wakeup:
     dst: ~/.wakeup
     src: wakeup
@@ -100,7 +103,25 @@ profiles:
     - f_xrandr.sh
     - f_config_powerline_colorschemes_tmux_default.json
     - f_config_powerline_themes_tmux_default.json
+    - f_config_powerline_themes_vim_default.json
     - f_vscode_user_settings_linux.json
+  mbp2012:
+    dotfiles:
+    - f_vimrc
+    - f_zshrc
+    - f_tmux.conf
+    - f_alias
+    - f_tmux-macos.conf
+    - f_karabiner.json
+    - f_wakeup
+    - f_sleep
+    - f_homebrew.gpg.gpg-agent.plist
+    - f_link-ssh-auth-sock.plist
+    - f_vimrc-osx-defaults
+    - f_vscode_user_settings_mac.json
+    - f_config_powerline_colorschemes_tmux_default.json
+    - f_config_powerline_themes_tmux_default.json
+    - f_config_powerline_themes_vim_default.json
   tower:
     dotfiles:
     - f_vimrc
@@ -119,21 +140,6 @@ profiles:
     - f_config_powerline_colorschemes_tmux_default.json
     - f_config_powerline_themes_tmux_default.json
     - f_vscode_user_settings_linux.json
-  mbp2012:
-    dotfiles:
-    - f_vimrc
-    - f_zshrc
-    - f_tmux.conf
-    - f_alias
-    - f_tmux-macos.conf
-    - f_karabiner.json
-    - f_wakeup
-    - f_sleep
-    - f_homebrew.gpg.gpg-agent.plist
-    - f_link-ssh-auth-sock.plist
-    - f_vimrc-osx-defaults
-    - f_vscode_user_settings_mac.json
-    - f_config_powerline_colorschemes_tmux_default.json
-    - f_config_powerline_themes_tmux_default.json
+    - f_config_powerline_themes_vim_default.json
 trans:
   gpg: gpg -q --for-your-eyes-only --no-tty -d {0} > {1}
