@@ -12,9 +12,6 @@ config:
   showdiff: false
   workdir: ~/.config/dotdrop
 dotfiles:
-  f_70-u2f.rules:
-    dst: /etc/udev/rules.d/70-u2f.rules
-    src: etc/udev/rules.d/70-u2f.rules
   f_alias:
     dst: ~/.alias
     src: alias
@@ -42,8 +39,11 @@ dotfiles:
   f_karabiner.json:
     dst: ~/.config/karabiner/karabiner.json
     src: config/karabiner/karabiner.json
-  f_library_application-support_code_user_settings.json:
+  f_vscode_user_settings_mac.json:
     dst: ~/Library/Application Support/Code/User/settings.json
+    src: Library/Application Support/Code/User/settings.json
+  f_vscode_user_settings_linux.json:
+    dst: ~/.config/Code/User/settings.json
     src: Library/Application Support/Code/User/settings.json
   f_link-ssh-auth-sock.plist:
     dst: ~/Library/LaunchAgents/link-ssh-auth-sock.plist
@@ -96,11 +96,29 @@ profiles:
     - f_i3status.conf
     - f_alias
     - f_gtk.css
-    - f_70-u2f.rules
     - f_compton.conf
     - f_xrandr.sh
     - f_config_powerline_colorschemes_tmux_default.json
     - f_config_powerline_themes_tmux_default.json
+    - f_vscode_user_settings_linux.json
+  tower:
+    dotfiles:
+    - f_vimrc
+    - f_xinitrc
+    - f_zshrc
+    - f_xmodmap
+    - f_tmux.conf
+    - f_config
+    - f_xresources
+    - f_i3status.conf
+    - f_alias
+    - f_gtk.css
+    - f_compton.conf
+    - f_xrandr.sh
+    - f_tmux.conf
+    - f_config_powerline_colorschemes_tmux_default.json
+    - f_config_powerline_themes_tmux_default.json
+    - f_vscode_user_settings_linux.json
   mbp2012:
     dotfiles:
     - f_vimrc
@@ -114,24 +132,8 @@ profiles:
     - f_homebrew.gpg.gpg-agent.plist
     - f_link-ssh-auth-sock.plist
     - f_vimrc-osx-defaults
-    - f_library_application-support_code_user_settings.json
+    - f_vscode_user_settings_mac.json
     - f_config_powerline_colorschemes_tmux_default.json
     - f_config_powerline_themes_tmux_default.json
-  tower:
-    dotfiles:
-    - f_vimrc
-    - f_xinitrc
-    - f_zshrc
-    - f_xmodmap
-    - f_tmux.conf
-    - f_config
-    - f_xresources
-    - f_i3status.conf
-    - f_alias
-    - f_gtk.css
-    - f_70-u2f.rules
-    - f_compton.conf
-    - f_xrandr.sh
-    - f_tmux.conf
 trans:
   gpg: gpg -q --for-your-eyes-only --no-tty -d {0} > {1}
