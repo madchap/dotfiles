@@ -155,3 +155,11 @@ python del powerline_setup
 
 " ctrlP
 let g:ctrlp_show_hidden = 1
+
+augroup CursorLineOnlyInActiveWindow
+  autocmd!
+  autocmd VimEnter,WinEnter,BufWinEnter * setlocal cursorline
+  autocmd VimEnter,WinEnter,BufWinEnter * setlocal cursorcolumn
+  autocmd WinLeave * setlocal nocursorline
+  autocmd WinLeave * setlocal nocursorcolumn
+augroup END
