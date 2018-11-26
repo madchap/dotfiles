@@ -141,6 +141,10 @@ echo "SSH_AUTH_SOCK is set to $(readlink $SSH_AUTH_SOCK)"
 xset -b
 source /home/fblaise/.oh-my-zsh/custom/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 source /home/fblaise/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
+source /usr/bin/virtualenvwrapper.sh
+
 echo "SSH_AUTH_SOCK is set to $(echo $SSH_AUTH_SOCK)"
 {%@@ endif @@%}
 

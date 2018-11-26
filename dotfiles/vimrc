@@ -20,11 +20,7 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 "Add your bundles here
 Plugin 'Syntastic' "uber awesome syntax and errors highlighter
-Plugin 'altercation/vim-colors-solarized' "T-H-E colorscheme
 Plugin 'https://github.com/tpope/vim-fugitive' "So awesome, it should be illegal 
-"...All your other bundles...
-Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'vim-scripts/indentpython.vim'       " python indent
 Plugin 'godlygeek/tabular'			" required for vim-markdown
@@ -98,15 +94,23 @@ let g:ycm_key_list_select_completion = ['<TAB>', '<DOWN>']
 let g:ycm_key_list_previous_completion = ['<S-TAB>', '<UP>']
 let g:ycm_key_list_stop_completion = ['<C-y>', '<ENTER>']
 
-python3 << EOF
-import os
-import sys
-if 'VIRTUAL_ENV' in os.environ:
-    project_base_dir = os.environ['VIRTUAL_ENV']
-    activate_this = os.path.join(project_base_dir, 'bin/activate')
-    execfile(activate_this, dict(__file__=activate_this))
-EOF
+" :python << EOF
+" import os
+" virtualenv = os.environ.get('VIRTUAL_ENV')
+" if virtualenv:
+"   activate_this = os.path.join(virtualenv, 'bin', 'activate_this.py')
+"   if os.path.exists(activate_this):
+"     execfile(activate_this, dict(__file__=activate_this))
+" EOF
 
+:python3 <<EOF
+import os
+virtualenv = os.environ.get('VIRTUAL_ENV')
+if virtualenv:
+  activate_this = os.path.join(virtualenv, 'bin', 'activate_this.py')
+  if os.path.exists(activate_this):
+    exec(compile(open(activate_this).read(), activate_this, 'exec'), {'__file__': activate_this})
+EOF
 
 " indent several lines in visual mode 
 xnoremap <Tab> >gv
@@ -129,7 +133,7 @@ let g:vimwiki_autowriteall = 1
 " nerdtree
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif " close vim if only nerdtree 
 map <Leader>n :NERDTreeToggle<CR>
-let NERDTreeMapOpenInTab='<ENTER>'
+" let NERDTreeMapOpenInTab='<ENTER>'
 
 " .py header
 au BufNewFile *.py 0r ~/gitrepos/misc/scripts/vim_python_header.txt
@@ -140,3 +144,12 @@ map <Leader>vp :VimuxPromptCommand<CR>
 map <Leader>vl :VimuxRunLastCommand<CR>
 " Zoom the tmux runner pane
 map <Leader>vz :VimuxZoomRunner<CR>
+let g:VimuxUseNearest = 0
+
+" powerline
+python from powerline.vim import setup as powerline_setup
+python powerline_setup()
+python del powerline_setup
+
+" ctrlP
+let g:ctrlp_show_hidden = 1
