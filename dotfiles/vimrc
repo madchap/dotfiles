@@ -49,7 +49,7 @@ call vundle#end()
 "must be last
 filetype plugin indent on " load filetype plugins/indent settings
 
-" colorscheme solarized
+set mouse=a
 set t_Co=256
 colorscheme wombat256mod
 syntax on                      " enable syntax
