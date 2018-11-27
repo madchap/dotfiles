@@ -30,14 +30,11 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'Xuyuanp/nerdtree-git-plugin'
 Plugin 'benmills/vimux'
 Plugin 'Valloric/YouCompleteMe'             " python autocomplete
-{%@@ if 'mbp' not in profile @@%}
-Plugin 'rodjek/vim-puppet'
-Plugin 'davidhalter/jedi-vim'
-{%@@ endif @@%}
 Plugin 'saltstack/salt-vim'
 Plugin 'wombat256.vim'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'Townk/vim-autoclose'
+Plugin 'christoomey/vim-tmux-navigator'
 
 if iCanHazVundle == 0
     echo "Installing Vundles, please ignore key map error messages"
@@ -104,6 +101,7 @@ let g:ycm_key_list_stop_completion = ['<C-y>', '<ENTER>']
 "     execfile(activate_this, dict(__file__=activate_this))
 " EOF
 
+" Activate virtualenv if found in os env variable
 :python3 <<EOF
 import os
 virtualenv = os.environ.get('VIRTUAL_ENV')
@@ -163,3 +161,11 @@ augroup CursorLineOnlyInActiveWindow
   autocmd WinLeave * setlocal nocursorline
   autocmd WinLeave * setlocal nocursorcolumn
 augroup END
+
+" tmux vim navigator
+let g:tmux_navigator_no_mappings = 1
+nnoremap <silent> <c-h> :TmuxNavigateLeft<cr>
+nnoremap <silent> <c-j> :TmuxNavigateDown<cr>
+nnoremap <silent> <c-k> :TmuxNavigateUp<cr>
+nnoremap <silent> <c-l> :TmuxNavigateRight<cr>
+nnoremap <silent> <c-\> :TmuxNavigatePrevious<cr>
