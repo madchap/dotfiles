@@ -45,6 +45,9 @@ dotfiles:
   f_link-ssh-auth-sock.plist:
     dst: ~/Library/LaunchAgents/link-ssh-auth-sock.plist
     src: Library/LaunchAgents/link-ssh-auth-sock.plist
+  f_n_clear_keygrip.sh:
+    dst: ~/bin/clear_keygrip.sh
+    src: bin/clear_keygrip.sh
   f_sleep:
     dst: ~/.sleep
     src: sleep
@@ -122,6 +125,7 @@ profiles:
     - f_config_powerline_colorschemes_tmux_default.json
     - f_config_powerline_themes_tmux_default.json
     - f_config_powerline_themes_vim_default.json
+    - f_n_clear_keygrip.sh
   tower:
     dotfiles:
     - f_vimrc
