@@ -1,6 +1,11 @@
 {
 	"segments": {
 		"right": [
+			{%@@ if 'mbp' in profile @@%}
+			{
+				"function": "powerline.segments.common.players.spotify_apple_script"
+			},
+			{%@@ endif @@%}
 			{
 				"function": "powerline.segments.common.net.internal_ip"
 			},
