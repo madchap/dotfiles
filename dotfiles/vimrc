@@ -33,7 +33,7 @@ Plugin 'Valloric/YouCompleteMe'             " python autocomplete
 Plugin 'saltstack/salt-vim'
 Plugin 'wombat256.vim'
 Plugin 'ctrlpvim/ctrlp.vim'
-Plugin 'Townk/vim-autoclose'
+Plugin 'Raimondi/delimitMate'
 Plugin 'christoomey/vim-tmux-navigator'
 
 if iCanHazVundle == 0
