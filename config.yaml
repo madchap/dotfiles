@@ -30,6 +30,9 @@ dotfiles:
   f_config_powerline_themes_vim_default.json:
     dst: ~/.config/powerline/themes/vim/default.json
     src: config/powerline/themes/vim/default.json
+  f_curlrc:
+    dst: ~/.curlrc
+    src: curlrc
   f_gtk.css:
     dst: ~/.config/gtk-3.0/gtk.css
     src: config/gtk-3.0/gtk.css
@@ -112,6 +115,7 @@ profiles:
     - f_config_powerline_themes_vim_default.json
     - f_vscode_user_settings_linux.json
     - f_rvmrc
+    - f_curlrc
   mbp2012:
     dotfiles:
     - f_vimrc
@@ -131,6 +135,7 @@ profiles:
     - f_config_powerline_themes_vim_default.json
     - f_n_clear_keygrip.sh
     - f_rvmrc
+    - f_curlrc
   tower:
     dotfiles:
     - f_vimrc
@@ -151,5 +156,6 @@ profiles:
     - f_vscode_user_settings_linux.json
     - f_config_powerline_themes_vim_default.json
     - f_rvmrc
+    - f_curlrc
 trans:
   gpg: gpg -q --for-your-eyes-only --no-tty -d {0} > {1}
