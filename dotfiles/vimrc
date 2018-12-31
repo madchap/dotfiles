@@ -69,6 +69,8 @@ set cursorline
 set cursorcolumn
 set number
 
+set tabstop=4 shiftwidth=4 expandtab
+
 " executes script
 :map <F6> :w<CR>:silent !chmod +x %:p<CR>:silent !%:p 2>&1 \| tee /tmp/%:t.tmp<CR>:pedit! +:42343234 /tmp/%:t.tmp<CR>:redraw!<CR><CR>n
 
@@ -169,3 +171,6 @@ nnoremap <silent> <c-j> :TmuxNavigateDown<cr>
 nnoremap <silent> <c-k> :TmuxNavigateUp<cr>
 nnoremap <silent> <c-l> :TmuxNavigateRight<cr>
 nnoremap <silent> <c-\> :TmuxNavigatePrevious<cr>
+
+" be verbose about tabs, spaces, eol
+" set listchars=eol:⏎,tab:▶·,trail:.,nbsp:.,extends:\#
