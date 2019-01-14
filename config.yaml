@@ -1,3 +1,5 @@
+dynvariables:
+  v_os_type: uname
 actions:
   vundle: vim +PluginInstall +qall
 config:
@@ -96,6 +98,26 @@ dotfiles:
     dst: ~/.zshrc
     src: zshrc
 profiles:
+  PMICHLAUMC31914:
+    dotfiles:
+    - f_vimrc
+    - f_zshrc
+    - f_tmux.conf
+    - f_alias
+    - f_tmux-macos.conf
+    - f_karabiner.json
+    - f_wakeup
+    - f_sleep
+    - f_homebrew.gpg.gpg-agent.plist
+    - f_link-ssh-auth-sock.plist
+    - f_vimrc-osx-defaults
+    - f_vscode_user_settings_mac.json
+    - f_config_powerline_colorschemes_tmux_default.json
+    - f_config_powerline_themes_tmux_default.json
+    - f_config_powerline_themes_vim_default.json
+    - f_n_clear_keygrip.sh
+    - f_rvmrc
+    - f_curlrc
   gimli:
     dotfiles:
     - f_vimrc

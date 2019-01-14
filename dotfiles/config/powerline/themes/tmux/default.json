@@ -1,11 +1,14 @@
 {
 	"segments": {
 		"right": [
-			{%@@ if 'mbp' in profile @@%}
+			{%@@ if v_os_type == 'Darwin' @@%}
 			{
 				"function": "powerline.segments.common.players.spotify_apple_script"
 			},
 			{%@@ endif @@%}
+			{
+				"function": "powerline.segments.common.net.external_ip"
+			},
 			{
 				"function": "powerline.segments.common.net.internal_ip"
 			},

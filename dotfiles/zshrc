@@ -1,11 +1,11 @@
 # If you come from bash you might have to change your $PATH.
-export PATH=$PATH:~/.local/bin
+export PATH=$PATH:~/.local/bin:/usr/local/sbin
 export TERM="xterm-256color"
 export LC_ALL="en_US.UTF-8"
 export EDITOR="vim"
 export _Z_CMD=","
 
-{%@@ if 'mbp' in profile @@%}
+{%@@ if v_os_type == 'Darwin' @@%}
 # https://github.com/robbyrussell/oh-my-zsh/issues/6835#issuecomment-390216875
 ZSH_DISABLE_COMPFIX=true
 {%@@ endif @@%}
@@ -21,7 +21,7 @@ export ZSH=~/.oh-my-zsh
 #ZSH_THEME="agnoster"
 ZSH_THEME="powerlevel9k/powerlevel9k"
 
-{%@@ if 'mbp' in profile @@%}
+{%@@ if v_os_type == 'Darwin' @@%}
 # will not fight to get this on my home machine....
 # powerlevel9k options
 DEFAULT_FOREGROUND=154 DEFAULT_BACKGROUND=008
@@ -134,7 +134,7 @@ setopt hist_ignore_all_dups
 # run fzf install for that to be populated.
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-{%@@ if 'mbp' in profile @@%}
+{%@@ if v_os_type == 'Darwin' @@%}
 source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 export SSH_AUTH_SOCKET=$HOME/.gnupg/S.gpg-agent.ssh

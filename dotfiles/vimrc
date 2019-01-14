@@ -1,4 +1,4 @@
-{%@@ if 'mbp' in profile @@%}
+{%@@ if v_os_type == 'Darwin' @@%}
 " import (copied) files from vim80 on osx
 source ~/.vimrc-osx-defaults
 {%@@ endif @@%}
