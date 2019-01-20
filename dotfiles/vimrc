@@ -29,12 +29,13 @@ Plugin 'vimwiki/vimwiki'
 Plugin 'scrooloose/nerdtree'
 Plugin 'Xuyuanp/nerdtree-git-plugin'
 Plugin 'benmills/vimux'
-Plugin 'Valloric/YouCompleteMe'             " python autocomplete
+Plugin 'Valloric/YouCompleteMe'
 Plugin 'saltstack/salt-vim'
 Plugin 'wombat256.vim'
 Plugin 'ctrlpvim/ctrlp.vim'
-Plugin 'Raimondi/delimitMate'
+Plugin 'Raimondi/delimitMate'               " autoclose
 Plugin 'christoomey/vim-tmux-navigator'
+Plugin 'gcmt/taboo.vim'                     " rename tabs
 
 if iCanHazVundle == 0
     echo "Installing Vundles, please ignore key map error messages"
@@ -173,4 +174,10 @@ nnoremap <silent> <c-l> :TmuxNavigateRight<cr>
 nnoremap <silent> <c-\> :TmuxNavigatePrevious<cr>
 
 " be verbose about tabs, spaces, eol
+" set list
 " set listchars=eol:⏎,tab:▶·,trail:.,nbsp:.,extends:\#
+"
+
+" terraform
+let g:terraform_align=1
+let g:terraform_fmt_on_save=1

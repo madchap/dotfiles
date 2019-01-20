@@ -13,5 +13,6 @@
      "code-runner.runInTerminal": true,
      "code-runner.executorMap": {
           "python": "$pythonPath $fullFileName",
-     }
+     },
+     "code-runner.saveFileBeforeRun": true
 }
