@@ -1,5 +1,3 @@
-dynvariables:
-  v_os_type: uname
 actions:
   vundle: vim +PluginInstall +qall
 config:
@@ -9,7 +7,8 @@ config:
   dotpath: dotfiles
   ignoreempty: false
   keepdot: false
-  link_by_default: false
+  link_dotfile_default: nolink
+  link_on_import: nolink
   longkey: true
   showdiff: false
   workdir: ~/.config/dotdrop
@@ -97,6 +96,8 @@ dotfiles:
   f_zshrc:
     dst: ~/.zshrc
     src: zshrc
+dynvariables:
+  v_os_type: uname
 profiles:
   mbp15bee.local:
     dotfiles:
