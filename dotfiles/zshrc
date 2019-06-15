@@ -113,6 +113,7 @@ source $ZSH/oh-my-zsh.sh
 hash kubectl 2>/dev/null && source <(kubectl completion zsh)
 hash kops 2>/dev/null && source <(kops completion zsh)
 hash aws 2>/dev/null && source aws_zsh_completer.sh
+hash jx 2>/dev/null && source <(jx completion zsh)
 
 
 # source ~/.ssh/myrc
