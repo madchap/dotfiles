@@ -98,7 +98,7 @@ dotfiles:
     dst: ~/.zshrc
     src: zshrc
 profiles:
-  PMICHLAUMC31914:
+  mbp15bee.local:
     dotfiles:
     - f_vimrc
     - f_zshrc
