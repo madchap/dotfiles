@@ -163,6 +163,7 @@ bar {
 	font xft:Droid Sans Mono, FontAwesome 10
 	separator_symbol ":|:"
 	position top
+    output primary
 
 	colors {
 		background #000000
