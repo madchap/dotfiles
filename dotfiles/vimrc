@@ -35,7 +35,7 @@ Plugin 'wombat256.vim'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'Raimondi/delimitMate'               " autoclose
 Plugin 'christoomey/vim-tmux-navigator'
-Plugin 'gcmt/taboo.vim'                     " rename tabs
+Plugin 'aklt/plantuml-syntax'
 
 if iCanHazVundle == 0
     echo "Installing Vundles, please ignore key map error messages"

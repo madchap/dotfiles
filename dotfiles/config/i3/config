@@ -163,8 +163,6 @@ bar {
 	font xft:Droid Sans Mono, FontAwesome 10
 	separator_symbol ":|:"
 	position top
-    # output primary
-    tray_output primary
 
 	colors {
 		background #000000
@@ -206,8 +204,7 @@ bindsym Mod1+Shift+Tab focus up
 #bindsym $mod+l exec "/usr/bin/i3lock -f -i ~/Pictures/linux-13.png"
 #exec xautolock -time 5 -locker "/usr/bin/i3lock -f -i ~/Pictures/linux-13.png"
 bindsym $mod+l exec "~/.i3/i3lock-multimonitor/lock"
-bindsym XF86Launch5 exec "~/.i3/i3lock-multimonitor/lock"
-exec xautolock -time 10 -locker "~/.i3/i3lock-multimonitor/lock"
+exec xautolock -time 5 -locker "~/.i3/i3lock-multimonitor/lock"
 #bindsym $mod+l exec "~/.i3/i3lock-fancy-multimonitor/lock"
 #exec xautolock -time 5 -locker "~/.i3/i3lock-fancy-multimonitor/lock"
 
@@ -233,25 +230,26 @@ exec --no-startup-id "xmodmap ~/.Xmodmap"
 
 # xrandr
 # laptop on 2560 x 1440
-# set $monitor eDP1 # my laptop's internal screen
-# set $monitor2 DP1-2 # external screen, they are set here to make it easier to move to new setups
+set $monitor eDP1 # my laptop's internal screen
+set $monitor2 DP1 # external screen, they are set here to make it easier to move to new setups
 # that has to be a fucking joke that it's the only multimedia key not detected.. bios bug?
 #bindsym XF86Display exec --no-startup-id "sh ~/.i3/scripts/xrandr.sh $monitor $monitor2"
-# exec --no-startup-id "sh ~/.i3/scripts/xrandr.sh $monitor"
+exec --no-startup-id "sh ~/.i3/scripts/xrandr.sh $monitor"
 
 # Pulse Audio controls
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5% #increase sound volume
+bindsym Menu+Prior exec --no-startup-id pactl set-sink-volume 0 +5% #increase sound volume
 bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5% #decrease sound volume
+bindsym Menu+Next exec --no-startup-id pactl set-sink-volume 0 -5% #decrease sound volume
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle # mute sound
-bindsym XF86MonBrightnessUp exec --no-startup-id ~/.i3/scripts/backlight.sh +10 # increase screen brightness
-bindsym XF86MonBrightnessDown exec --no-startup-id ~/.i3/scripts/backlight.sh -10 # decrease screen brightness
-bindsym XF86Launch6 --no-startup-id pactl set-sink-mute 0 toggle
- 
+
 # Sreen brightness controls
 # bindsym XF86MonBrightnessUp exec --no-startup-id xbacklight -inc 20 # increase screen brightness
 # bindsym XF86MonBrightnessUp exec --no-startup-id ~/bin/xrandr_brightness.sh plus # increase screen brightness
+bindsym XF86MonBrightnessUp exec --no-startup-id ~/.i3/scripts/backlight.sh +10 # increase screen brightness
 # bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -dec 20 # decrease screen brightness
 #bindsym XF86MonBrightnessDown exec --no-startup-id ~/bin/xrandr_brightness.sh minus # decrease screen brightness
+bindsym XF86MonBrightnessDown exec --no-startup-id ~/.i3/scripts/backlight.sh -10 # decrease screen brightness
 
 # Media player controls
 bindsym XF86AudioPlay exec playerctl play
@@ -267,9 +265,8 @@ exec --no-startup-id "clipit"
 # Start launching gnome polkit agent
 exec --no-startup-id "/usr/lib/polkit-gnome-authentication-agent-1"
 exec --no-startup-id "nm-applet"
-exec --no-startup-id "compton -b -d :0"
+# exec --no-startup-id "compton -b -d :0"
 exec --no-startup-id "shutter --min_at_startup"
-exec --no-startup-id "pasystray"
 # exec --no-startup-id "blueman-manager"
 # exec --no-startup-id "albert"
 

@@ -20,6 +20,5 @@ rofi.opacity:           90
 rofi.font:              SourceCodePro-Regular 24
 
 
-#Xft.dpi: 120
-Xft.dpi: 128
-#Xft.dpi: 144
+! Xft.dpi: 128
+Xft.dpi: 144
