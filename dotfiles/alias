@@ -18,3 +18,11 @@ alias lastfile='ls -1 -tr |tail -1'
 alias vault_darth='export VAULT_ADDR=https://vault.darthgibus.net:8200 && vault login -method=userpass username=fblaise'
 alias dotdrop='/Users/fblaise/gitrepos/dotfiles/dotdrop.sh --cfg=/Users/fblaise/gitrepos/dotfiles/config.yaml'
 alias 256c='for i in {0..255}; do printf "\x1b[38;5;${i}mcolor%-5i\x1b[0m" $i ; if ! (( ($i + 1 ) % 8 )); then echo ; fi ; done'
+alias cal='cal -m -w'
+alias lastpic='ls -d1 -tr ~/Pictures/* |tail -1'
+alias ironkey='sudo mount /dev/sr0 ~/ironkey && ~/ironkey/linux/ironkey && sleep 2 && sudo mount ~/ironkey_data && cd ~/ironkey_data'
+alias preview="fzf --preview 'bat --color \"always\" {}'"
+alias dodo='~/.i3/i3lock-multimonitor/lock && sudo systemctl hibernate'
+alias kx='kubectx'
+alias dotdrop='~/gitrepos/dotfiles/dotdrop.sh --cfg=~/gitrepos/dotfiles/config.yaml'
+
