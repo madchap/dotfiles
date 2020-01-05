@@ -102,6 +102,9 @@ dotfiles:
   f_config_libinput-gestures.conf:
     src: config/libinput-gestures.conf
     dst: ~/.config/libinput-gestures.conf
+  f_gnupg_gpg-agent.conf:
+    src: gnupg/gpg-agent.conf
+    dst: ~/.gnupg/gpg-agent.conf
 dynvariables:
   v_os_type: uname
 profiles:
@@ -146,6 +149,7 @@ profiles:
     - f_rvmrc
     - f_curlrc
     - f_config_libinput-gestures.conf
+    - f_gnupg_gpg-agent.conf
   mbp2012:
     dotfiles:
     - f_vimrc
