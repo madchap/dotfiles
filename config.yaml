@@ -99,6 +99,9 @@ dotfiles:
   f_i3_scripts_backlight.sh:
     src: i3/scripts/backlight.sh
     dst: ~/.i3/scripts/backlight.sh
+  f_config_libinput-gestures.conf:
+    src: config/libinput-gestures.conf
+    dst: ~/.config/libinput-gestures.conf
 dynvariables:
   v_os_type: uname
 profiles:
@@ -142,6 +145,7 @@ profiles:
     - f_vscode_user_settings_linux.json
     - f_rvmrc
     - f_curlrc
+    - f_config_libinput-gestures.conf
   mbp2012:
     dotfiles:
     - f_vimrc
