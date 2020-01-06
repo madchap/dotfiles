@@ -22,7 +22,7 @@ ZSH_AUTOSUGGEST_STRATEGY=(history completion)
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 #ZSH_THEME="agnoster"
 ZSH_THEME="powerlevel9k/powerlevel9k"
-POWERLEVEL9K_DISABLE_PROMPT=true
+POWERLEVEL9K_DISABLE_RPROMPT=true
 POWERLEVEL9K_PROMPT_ADD_NEWLINE=true
 POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(status context dir newline virtualenv vcs)
 
