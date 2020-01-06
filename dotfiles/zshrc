@@ -4,7 +4,7 @@ export PATH=$PATH:~/.local/bin:/usr/local/sbin
 export LC_ALL="en_US.UTF-8"
 export EDITOR="vim"
 export _Z_CMD=","
-
+export GOPATH=$HOME/go
 {%@@ if v_os_type == 'Darwin' @@%}
 # https://github.com/robbyrussell/oh-my-zsh/issues/6835#issuecomment-390216875
 ZSH_DISABLE_COMPFIX=true
@@ -14,6 +14,7 @@ source ~/.alias
 
 # Path to your oh-my-zsh installation.
 export ZSH=~/.oh-my-zsh
+# can possibly slow down terminal
 ZSH_AUTOSUGGEST_STRATEGY=(history completion)
 
 # Set name of the theme to load. Optionally, if you set this to "random"
@@ -21,6 +22,9 @@ ZSH_AUTOSUGGEST_STRATEGY=(history completion)
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 #ZSH_THEME="agnoster"
 ZSH_THEME="powerlevel9k/powerlevel9k"
+POWERLEVEL9K_DISABLE_PROMPT=true
+POWERLEVEL9K_PROMPT_ADD_NEWLINE=true
+POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(status context dir newline virtualenv vcs)
 
 {%@@ if v_os_type == 'Darwin' @@%}
 # will not fight to get this on my home machine....
@@ -154,7 +158,7 @@ source /home/fblaise/.oh-my-zsh/custom/plugins/zsh-autosuggestions/zsh-autosugge
 source /home/fblaise/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
-source /usr/bin/virtualenvwrapper.sh
+source /usr/bin/virtualenvwrapper
 
 echo "SSH_AUTH_SOCK is set to $(echo $SSH_AUTH_SOCK)"
 {%@@ endif @@%}
@@ -162,5 +166,5 @@ echo "SSH_AUTH_SOCK is set to $(echo $SSH_AUTH_SOCK)"
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=243'
 echo UPDATESTARTUPTTY | gpg-connect-agent >/dev/null 
 
-fpath=( ~/.zsh_functions "${fpath[@]}" )
-autoload -Uz list-vault-keys
+# fpath=( ~/.zsh_functions "${fpath[@]}" )
+# autoload -Uz list-vault-keys
