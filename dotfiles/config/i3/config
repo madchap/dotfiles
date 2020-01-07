@@ -270,7 +270,7 @@ exec --no-startup-id "clipit"
 # Start launching gnome polkit agent
 exec --no-startup-id "/usr/lib/polkit-gnome-authentication-agent-1"
 exec --no-startup-id "nm-applet"
-# exec --no-startup-id "compton -b -d :0"
+exec --no-startup-id "picom -b" # replaces compton
 exec --no-startup-id "shutter --min_at_startup"
 exec --no-startup-id "blueman-manager"
 exec --no-startup-id "pasystray"
