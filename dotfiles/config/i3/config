@@ -10,9 +10,9 @@
 # Please see https://i3wm.org/docs/userguide.html for a complete reference!
 
 # windows key
-# set $mod Mod4
-# Alt key
-set $mod Mod1
+set $mod Mod4
+# Alt key -- will likely break libinput-gestures for alt+Left move
+# set $mod Mod1
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
@@ -226,7 +226,7 @@ exec --no-startup-id /usr/lib/xfce4/notifyd/xfce4-notifyd
 
 # libinput-gestures
 # should start with autostart from setup?
-# exec --no-startup-id libinput-gestures
+exec --no-startup-id libinput-gestures
 exec --no-startup-id "xinput set-prop 'SYNA8004:00 06CB:CD8B Touchpad' 'libinput Natural Scrolling Enabled' 1"
 
 # map capslock to ctrl
