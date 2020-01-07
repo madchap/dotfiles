@@ -48,7 +48,8 @@ esac
 
 # eval $(/usr/bin/gnome-keyring-daemon -r -d --components=pkcs11,secrets,ssh,gpg)
 # removing to let gpg-agent handle ssh (yubikey)
-eval $(/usr/bin/gnome-keyring-daemon -r -d --components=secrets)
+# Not needed after all after clean install, and mess up with my i3 exec of setxkeymap and xmodmap?
+# eval $(/usr/bin/gnome-keyring-daemon -r -d --components=secrets)
 export SSH_AUTH_SOCK
 
 dbus-update-activation-environment --all
@@ -58,7 +59,7 @@ dbus-update-activation-environment --all
 # 
 # finally start the window manager
 #
-eval $(setxkbmap ch fr_mac)
+# eval $(setxkbmap ch fr_mac)
 unset WINDOW_MANAGER STARTUP
 exec $WINDOWMANAGER ${1+"$@"}
 

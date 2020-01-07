@@ -9,7 +9,10 @@
 #
 # Please see https://i3wm.org/docs/userguide.html for a complete reference!
 
-set $mod Mod4
+# windows key
+# set $mod Mod4
+# Alt key
+set $mod Mod1
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
@@ -162,7 +165,6 @@ bindsym $mod+r mode "resize"
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
-	font xft:Droid Sans Mono, FontAwesome 10
 	separator_symbol ":|:"
 	position top
     # output primary
@@ -206,31 +208,29 @@ bindsym Mod1+Tab focus down
 bindsym Mod1+Shift+Tab focus up
 
 # i3lock
-#bindsym $mod+l exec "/usr/bin/i3lock -f -i ~/Pictures/linux-13.png"
-#exec xautolock -time 5 -locker "/usr/bin/i3lock -f -i ~/Pictures/linux-13.png"
-bindsym $mod+l exec "~/.i3/i3lock-multimonitor/lock"
-bindsym XF86Launch5 exec "~/.i3/i3lock-multimonitor/lock"
-exec xautolock -time 5 -locker "~/.i3/i3lock-multimonitor/lock"
-#bindsym $mod+l exec "~/.i3/i3lock-fancy-multimonitor/lock"
+# bindsym $mod+l exec "~/.i3/i3lock-multimonitor/lock"
+
+# bug https://bugzilla.opensuse.org/show_bug.cgi?id=1160133
+# exec --no-startup-id light-locker
+# bindsym $mod+l exec light-locker-command -l
+exec xautolock -time 10 -locker "~/.i3/i3lock-multimonitor/lock"
+bindsym $mod+l exec "~/.i3/i3lock-fancy-multimonitor/lock"
 #exec xautolock -time 5 -locker "~/.i3/i3lock-fancy-multimonitor/lock"
 
 # background
-exec --no-startup-id "feh --bg-fill ~/Pictures/planet_clouds.jpg"
-# exec --no-startup-id "feh --bg-fill ~/Pictures/i3_solarized_bg.png"
+# exec --no-startup-id "feh --bg-fill ~/Pictures/planet_clouds.jpg"
+exec --no-startup-id "feh --bg-fill ~/Pictures/i3_solarized_bg.png"
 
 # watch out for plasma5-workspace, conflicting dbus notifications
 exec --no-startup-id /usr/lib/xfce4/notifyd/xfce4-notifyd
 
 # libinput-gestures
-exec --no-startup-id libinput-gestures
-exec --no-startup-id "xinput set-prop 'DLL075B:01 06CB:76AF Touchpad' 'libinput Natural Scrolling Enabled' 1"
-
-# gnome keys available
-# now in .xinitrc
-# exec --no-startup-id "gnome-keyring-daemon -r -d"
+# should start with autostart from setup?
+# exec --no-startup-id libinput-gestures
+exec --no-startup-id "xinput set-prop 'SYNA8004:00 06CB:CD8B Touchpad' 'libinput Natural Scrolling Enabled' 1"
 
 # map capslock to ctrl
-exec --no-startup-id "~/gitrepos/misc/setxkbmap"
+exec --no-startup-id "sh ~/gitrepos/misc/setxkbmap"
 
 # xmodmap
 exec --no-startup-id "xmodmap ~/.Xmodmap"
@@ -241,26 +241,26 @@ set $monitor eDP1 # my laptop's internal screen
 set $monitor2 DP1-2 # external screen, they are set here to make it easier to move to new setups
 # that has to be a fucking joke that it's the only multimedia key not detected.. bios bug?
 #bindsym XF86Display exec --no-startup-id "sh ~/.i3/scripts/xrandr.sh $monitor $monitor2"
-exec --no-startup-id "sh ~/.i3/scripts/xrandr.sh $monitor"
+# exec --no-startup-id "sh ~/.i3/scripts/xrandr.sh $monitor"
 
 # Pulse Audio controls
-bindsym Mod4+Prior exec --no-startup-id pactl set-sink-volume 0 -5% #decrease sound volume
-bindsym Mod4+Next exec --no-startup-id pactl set-sink-volume 0 +5% #decrease sound volume
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5% #decrease sound volume
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5% #decrease sound volume
 bindsym XF86Launch6 exec --no-startup-id pamixer -t
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle
 
 # Sreen brightness controls
-# bindsym XF86MonBrightnessUp exec --no-startup-id xbacklight -inc 20 # increase screen brightness
-# bindsym XF86MonBrightnessUp exec --no-startup-id ~/bin/xrandr_brightness.sh plus # increase screen brightness
-bindsym XF86MonBrightnessUp exec --no-startup-id ~/.i3/scripts/backlight.sh +10 # increase screen brightness
-# bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -dec 20 # decrease screen brightness
+bindsym XF86MonBrightnessUp exec --no-startup-id xbacklight -inc 10 # increase screen brightness
+# bindsym XF86MonBrightnessUp exec --no-startup-id ~/.i3/scripts/backlight.sh +10 # increase screen brightness
+bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -dec 10 # decrease screen brightness
 #bindsym XF86MonBrightnessDown exec --no-startup-id ~/bin/xrandr_brightness.sh minus # decrease screen brightness
-bindsym XF86MonBrightnessDown exec --no-startup-id ~/.i3/scripts/backlight.sh -10 # decrease screen brightness
+# bindsym XF86MonBrightnessDown exec --no-startup-id ~/.i3/scripts/backlight.sh -10 # decrease screen brightness
 
 # Media player controls
-bindsym XF86AudioPlay exec playerctl play
-bindsym XF86AudioPause exec playerctl pause
-bindsym XF86AudioNext exec playerctl next
-bindsym XF86AudioPrev exec playerctl previous
+# bindsym XF86AudioPlay exec playerctl play
+# bindsym XF86AudioPause exec playerctl pause
+# bindsym XF86AudioNext exec playerctl next
+# bindsym XF86AudioPrev exec playerctl previous
 
 # startup items
 #exec --no-startup-id "parcellite"
@@ -270,9 +270,10 @@ exec --no-startup-id "clipit"
 # Start launching gnome polkit agent
 exec --no-startup-id "/usr/lib/polkit-gnome-authentication-agent-1"
 exec --no-startup-id "nm-applet"
-exec --no-startup-id "picom -b" # replaces compton
-exec --no-startup-id "shutter --min_at_startup"
+exec --no-startup-id "picom -b"
+exec --no-startup-id "flameshot"
 exec --no-startup-id "blueman-manager"
+exec --no-startup-id "pulseaudio --start"
 exec --no-startup-id "pasystray"
 # exec --no-startup-id "albert"
 
@@ -281,10 +282,10 @@ exec --no-startup-id "pasystray"
 # until shutter does not crash anymore when launched if already running
 # bindsym --release Print exec scrot ~/Pictures/snap_full_%Y%m%d_%H%M%S.png
 # bindsym --release ctrl+Print exec scrot -s ~/Pictures/snap_sel_%Y%m%d_%H%M%S.png
-bindsym --release ctrl+Print exec shutter -s -e --disable_systray -p default -n
+# bindsym --release ctrl+Print exec shutter -s -e --disable_systray -p default -n
 
 # vpn
-bindsym ctrl+XF86Launch5 exec "/home/fblaise/bin/toggle_vpn.sh"
+bindsym XF86Favorites exec "/home/fblaise/bin/toggle_vpn.sh"
 
 
 # enable floating window for virtualbox
