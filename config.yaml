@@ -105,6 +105,9 @@ dotfiles:
   f_gnupg_gpg-agent.conf:
     src: gnupg/gpg-agent.conf
     dst: ~/.gnupg/gpg-agent.conf
+  f_gtkrc-2.0:
+    src: gtkrc-2.0
+    dst: ~/.gtkrc-2.0
 dynvariables:
   v_os_type: uname
 profiles:
@@ -140,6 +143,7 @@ profiles:
     - f_i3status.conf
     - f_alias
     - f_gtk.css
+    - f_gtkrc-2.0
     - f_compton.conf
     - f_xrandr.sh
     - f_config_powerline_colorschemes_tmux_default.json
@@ -182,6 +186,7 @@ profiles:
     - f_i3status.conf
     - f_alias
     - f_gtk.css
+    - f_gtkrc-2.0
     - f_compton.conf
     - f_xrandr.sh
     - f_tmux.conf
@@ -192,5 +197,28 @@ profiles:
     - f_rvmrc
     - f_curlrc
     - f_i3_scripts_backlight.sh
+  x1man:
+    dotfiles:
+    - f_vimrc
+    - f_xinitrc
+    - f_zshrc
+    - f_xmodmap
+    - f_tmux.conf
+    - f_config
+    - f_xresources
+    - f_i3status.conf
+    - f_alias
+    - f_gtk.css
+    - f_gtkrc-2.0
+    - f_compton.conf
+    - f_xrandr.sh
+    - f_config_powerline_colorschemes_tmux_default.json
+    - f_config_powerline_themes_tmux_default.json
+    - f_config_powerline_themes_vim_default.json
+    - f_vscode_user_settings_linux.json
+    - f_rvmrc
+    - f_curlrc
+    - f_config_libinput-gestures.conf
+    - f_gnupg_gpg-agent.conf
 trans_read:
   gpg: gpg -q --for-your-eyes-only --no-tty -d {0} > {1}
