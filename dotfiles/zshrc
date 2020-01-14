@@ -1,10 +1,13 @@
 # If you come from bash you might have to change your $PATH.
-export PATH=$PATH:~/.local/bin:/usr/local/sbin
 # export TERM="xterm-256color"
 export LC_ALL="en_US.UTF-8"
 export EDITOR="vim"
 export _Z_CMD=","
 export GOPATH=$HOME/go
+export NPM_PACKAGES=$HOME/.npm-packages
+
+export PATH=$PATH:~/.local/bin:/usr/local/sbin:$NPM_PACKAGES/bin
+
 {%@@ if v_os_type == 'Darwin' @@%}
 # https://github.com/robbyrussell/oh-my-zsh/issues/6835#issuecomment-390216875
 ZSH_DISABLE_COMPFIX=true
