@@ -54,6 +54,9 @@ syntax on                      " enable syntax
 
 :let mapleader = " "
 
+"syntastic py3
+let g:syntastic_python_python_exec = 'python3'
+
 "airline
 set laststatus=2 "force to appear
 
