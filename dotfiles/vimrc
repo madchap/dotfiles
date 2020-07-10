@@ -1,7 +1,3 @@
-{%@@ if v_os_type == 'Darwin' @@%}
-" import (copied) files from vim80 on osx
-source ~/.vimrc-osx-defaults
-{%@@ endif @@%}
 
 " Setting up Vundle - the vim plugin bundler
 let iCanHazVundle=1
@@ -32,10 +28,12 @@ Plugin 'benmills/vimux'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'saltstack/salt-vim'
 Plugin 'wombat256.vim'
-Plugin 'ctrlpvim/ctrlp.vim'
+" Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'Raimondi/delimitMate'               " autoclose
 Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'aklt/plantuml-syntax'
+Plugin 'junegunn/fzf'
+Plugin 'junegunn/fzf.vim'
 
 if iCanHazVundle == 0
     echo "Installing Vundles, please ignore key map error messages"
@@ -54,7 +52,7 @@ syntax on                      " enable syntax
 
 :let mapleader = " "
 
-"syntastic py3
+"syntastic
 let g:syntastic_python_python_exec = 'python3'
 
 "airline
@@ -158,7 +156,17 @@ python3 powerline_setup()
 python3 del powerline_setup
 
 " ctrlP
-let g:ctrlp_show_hidden = 1
+" let g:ctrlp_show_hidden = 1
+" let g:ctrlp_cmd = 'CtrlPMixed'
+
+" fzf
+nnoremap <C-p> :Files<Cr>
+nnoremap <C-g> :Rg<Cr>
+
+nmap <silent> <A-Up> :wincmd k<CR>
+nmap <silent> <A-Down> :wincmd j<CR>
+nmap <silent> <A-Left> :wincmd h<CR>
+nmap <silent> <A-Right> :wincmd l<CR>
 
 augroup CursorLineOnlyInActiveWindow
   autocmd!
