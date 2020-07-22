@@ -48,6 +48,7 @@ set mouse=a
 set t_Co=256
 colorscheme wombat256mod
 syntax on                      " enable syntax
+set hlsearch
 
 :let mapleader = " "
 
