@@ -34,6 +34,7 @@ Plugin 'aklt/plantuml-syntax'
 Plugin 'junegunn/fzf'
 Plugin 'junegunn/fzf.vim'
 Plugin 'voldikss/vim-floaterm'
+Plugin 'dhruvasagar/vim-zoom'
 
 if iCanHazVundle == 0
     echo "Installing Vundles, please ignore key map error messages"
