@@ -300,3 +300,17 @@ bindsym $mod+y move workspace to output down
 exec --no-startup-id "xsetwacom set 'Wacom Intuos S Pen stylus' maptooutput 3840x2160+3840+0"
 # wacom map to only the left half of the right screen above
 xsetwacom --set "Wacom Intuos S Pen stylus" area 0 0 30400 9500
+
+# inkspace wacom mappings
+# map pad LEFT-LOW to SHIFT modifier
+xsetwacom --set "Wacom Intuos S Pad pad" Button 1 key "Shift_L"
+# map pad LEFT-HIGH to SPACE for tool toggle
+xsetwacom --set "Wacom Intuos S Pad pad" Button 3 "key +space"
+# map pad RIGHT-LOW to ZOOM RESET
+xsetwacom --set "Wacom Intuos S Pad pad" Button 8 "key 4"
+# map pad RIGHT-HIGH to ZOOM SELECTION
+xsetwacom --set "Wacom Intuos S Pad pad" Button 9 "key z"
+# map stylus upper left button to space for tool toggle
+# prevent crappy zoom when not wanted too
+xsetwacom --set "Wacom Intuos S Pen stylus" Button 2 "key +space"
+xsetwacom --set "Wacom Intuos S Pen stylus" Button 3 "key +space"
