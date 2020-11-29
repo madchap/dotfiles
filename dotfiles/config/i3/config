@@ -295,3 +295,8 @@ bindsym XF86Favorites exec "/home/fblaise/bin/toggle_vpn.sh"
 # move the whole workspace to the next output
 bindsym $mod+x move workspace to output left
 bindsym $mod+y move workspace to output down
+
+# wacom tablet/stylus on right screen
+exec --no-startup-id "xsetwacom set 'Wacom Intuos S Pen stylus' maptooutput 3840x2160+3840+0"
+# wacom map to only the left half of the right screen above
+xsetwacom --set "Wacom Intuos S Pen stylus" area 0 0 30400 9500
