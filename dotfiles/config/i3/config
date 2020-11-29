@@ -307,7 +307,7 @@ xsetwacom --set "Wacom Intuos S Pad pad" Button 1 key "Shift_L"
 # map pad LEFT-HIGH to SPACE for tool toggle
 xsetwacom --set "Wacom Intuos S Pad pad" Button 3 "key +space"
 # map pad RIGHT-LOW to ZOOM RESET
-xsetwacom --set "Wacom Intuos S Pad pad" Button 8 "key 4"
+xsetwacom --set "Wacom Intuos S Pad pad" Button 8 "key +ctrl z"
 # map pad RIGHT-HIGH to ZOOM SELECTION
 xsetwacom --set "Wacom Intuos S Pad pad" Button 9 "key z"
 # map stylus upper left button to space for tool toggle
