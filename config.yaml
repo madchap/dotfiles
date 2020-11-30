@@ -108,6 +108,9 @@ dotfiles:
   f_gtkrc-2.0:
     src: gtkrc-2.0
     dst: ~/.gtkrc-2.0
+  f_xournal_config:
+    src: xournal/config
+    dst: ~/.xournal/config
 dynvariables:
   v_os_type: uname
 profiles:
@@ -197,6 +200,7 @@ profiles:
     - f_rvmrc
     - f_curlrc
     - f_i3_scripts_backlight.sh
+    - f_xournal_config
   x1man:
     dotfiles:
     - f_vimrc
