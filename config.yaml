@@ -111,13 +111,39 @@ dotfiles:
   f_xournal_config:
     src: xournal/config
     dst: ~/.xournal/config
+  f_tigrc:
+    src: tigrc
+    dst: ~/.tigrc
 dynvariables:
   v_os_type: uname
 profiles:
+  TR-C02FP21SMD6R:
+    dotfiles:
+    - f_vimrc
+    - f_tigrc:
+    - f_zshrc
+    - f_tmux.conf
+    - f_alias
+    - f_tmux-macos.conf
+    - f_karabiner.json
+    - f_wakeup
+    - f_sleep
+    - f_homebrew.gpg.gpg-agent.plist
+    - f_link-ssh-auth-sock.plist
+    - f_vimrc-osx-defaults
+    - f_vscode_user_settings_mac.json
+    - f_config_powerline_colorschemes_tmux_default.json
+    - f_config_powerline_themes_tmux_default.json
+    - f_config_powerline_themes_vim_default.json
+    - f_n_clear_keygrip.sh
+    - f_rvmrc
+    - f_curlrc
+    - f_tigrc
   mbp15bee.local:
     dotfiles:
     - f_vimrc
     - f_zshrc
+    - f_tigrc:
     - f_tmux.conf
     - f_alias
     - f_tmux-macos.conf
@@ -138,6 +164,7 @@ profiles:
     dotfiles:
     - f_vimrc
     - f_xinitrc
+    - f_tigrc:
     - f_zshrc
     - f_xmodmap
     - f_tmux.conf
@@ -157,29 +184,10 @@ profiles:
     - f_curlrc
     - f_config_libinput-gestures.conf
     - f_gnupg_gpg-agent.conf
-  mbp2012:
-    dotfiles:
-    - f_vimrc
-    - f_zshrc
-    - f_tmux.conf
-    - f_alias
-    - f_tmux-macos.conf
-    - f_karabiner.json
-    - f_wakeup
-    - f_sleep
-    - f_homebrew.gpg.gpg-agent.plist
-    - f_link-ssh-auth-sock.plist
-    - f_vimrc-osx-defaults
-    - f_vscode_user_settings_mac.json
-    - f_config_powerline_colorschemes_tmux_default.json
-    - f_config_powerline_themes_tmux_default.json
-    - f_config_powerline_themes_vim_default.json
-    - f_n_clear_keygrip.sh
-    - f_rvmrc
-    - f_curlrc
   tower:
     dotfiles:
     - f_vimrc
+    - f_tigrc  
     - f_xinitrc
     - f_zshrc
     - f_xmodmap
@@ -205,6 +213,7 @@ profiles:
     dotfiles:
     - f_vimrc
     - f_xinitrc
+    - f_tigrc  
     - f_zshrc
     - f_xmodmap
     - f_tmux.conf
