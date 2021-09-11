@@ -246,6 +246,7 @@ bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5% #d
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5% #decrease sound volume
 bindsym XF86Launch6 exec --no-startup-id pamixer -t
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle
+bindsym $mod+F12 exec --no-startup-id "~/gitrepos/misc/pulseaudio/toggle-mute-sources.sh"
 
 # Sreen brightness controls
 bindsym XF86MonBrightnessUp exec --no-startup-id xbacklight -inc 10 # increase screen brightness
