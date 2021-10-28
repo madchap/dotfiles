@@ -120,7 +120,7 @@ profiles:
   TR-C02FP21SMD6R:
     dotfiles:
     - f_vimrc
-    - f_tigrc:
+    - f_tigrc
     - f_zshrc
     - f_tmux.conf
     - f_alias
@@ -143,7 +143,7 @@ profiles:
     dotfiles:
     - f_vimrc
     - f_zshrc
-    - f_tigrc:
+    - f_tigrc
     - f_tmux.conf
     - f_alias
     - f_tmux-macos.conf
@@ -164,7 +164,7 @@ profiles:
     dotfiles:
     - f_vimrc
     - f_xinitrc
-    - f_tigrc:
+    - f_tigrc
     - f_zshrc
     - f_xmodmap
     - f_tmux.conf

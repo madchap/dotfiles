@@ -23,6 +23,6 @@ alias lastpic='ls -d1 -tr ~/Pictures/* |tail -1'
 alias ironkey='sudo mount /dev/sr0 ~/ironkey && ~/ironkey/linux/ironkey && sleep 2 && sudo mount ~/ironkey_data && cd ~/ironkey_data'
 alias preview="fzf --preview 'bat --color \"always\" {}'"
 alias dodo='~/.i3/i3lock-multimonitor/lock && sudo systemctl hibernate'
-alias kx='kubectx'
+alias kx='kubectl ctx'
+alias kn='kubectl ns'
 alias dotdrop='~/gitrepos/dotfiles/dotdrop.sh --cfg=~/gitrepos/dotfiles/config.yaml'
-
