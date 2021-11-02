@@ -157,6 +157,7 @@ gcloud_path="/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.z
 [[ -f $gcloud_path ]] && source $gcloud_path
 gcloud_completion="/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc"
 [[ -f $gcloud_completion ]] && source $gcloud_completion
+[[ -f /usr/local/bin/az ]] && source /usr/local/etc/bash_completion.d/az
 {%@@ else @@%}
 xset -b
 source /home/fblaise/.oh-my-zsh/custom/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
