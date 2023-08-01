@@ -206,13 +206,12 @@ bindsym Mod1+Tab focus down
 bindsym Mod1+Shift+Tab focus up
 
 # i3lock
-# bindsym $mod+l exec "~/.i3/i3lock-multimonitor/lock"
-
 # bug https://bugzilla.opensuse.org/show_bug.cgi?id=1160133
 # exec --no-startup-id light-locker
 # bindsym $mod+l exec light-locker-command -l
 exec xautolock -time 10 -locker "~/.i3/i3lock-multimonitor/lock"
-bindsym $mod+l exec "~/.i3/i3lock-fancy-multimonitor/lock"
+bindsym $mod+l exec "~/.i3/i3lock-multimonitor/lock"
+bindsym $mod+Print exec "flameshot gui --clipboard"
 #exec xautolock -time 5 -locker "~/.i3/i3lock-fancy-multimonitor/lock"
 
 # background
@@ -225,7 +224,7 @@ exec --no-startup-id /usr/lib/xfce4/notifyd/xfce4-notifyd
 # libinput-gestures
 # should start with autostart from setup?
 exec --no-startup-id libinput-gestures
-exec --no-startup-id "xinput set-prop 'SYNA8004:00 06CB:CD8B Touchpad' 'libinput Natural Scrolling Enabled' 1"
+exec --no-startup-id "xinput set-prop 'SYNA8008:00 06CB:CE58 Touchpad' 'libinput Natural Scrolling Enabled' 1"
 
 # map capslock to ctrl
 exec --no-startup-id "sh ~/gitrepos/misc/setxkbmap"
@@ -242,11 +241,12 @@ set $monitor2 DP1-2 # external screen, they are set here to make it easier to mo
 # exec --no-startup-id "sh ~/.i3/scripts/xrandr.sh $monitor"
 
 # Pulse Audio controls
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5% #decrease sound volume
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5% #decrease sound volume
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume alsa_output.pci-0000_00_1f.3-platform-skl_hda_dsp_generic.HiFi__hw_sofhdadsp__sink -5% #decrease sound volume
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume alsa_output.pci-0000_00_1f.3-platform-skl_hda_dsp_generic.HiFi__hw_sofhdadsp__sink +5% #decrease sound volume
 bindsym XF86Launch6 exec --no-startup-id pamixer -t
-bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle
-bindsym $mod+F12 exec --no-startup-id "~/gitrepos/misc/pulseaudio/toggle-mute-sources.sh"
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute alsa_output.pci-0000_00_1f.3-platform-skl_hda_dsp_generic.HiFi__hw_sofhdadsp__sink toggle
+# bindsym $mod+F12 exec --no-startup-id "~/gitrepos/misc/pulseaudio/toggle-mute-sources.sh"
+bindsym XF86AudioMicMute exec --no-startup-id "~/gitrepos/misc/pulseaudio/toggle-mute-sources.sh"
 
 # Sreen brightness controls
 bindsym XF86MonBrightnessUp exec --no-startup-id xbacklight -inc 10 # increase screen brightness
@@ -269,7 +269,7 @@ exec --no-startup-id "clipit"
 # Start launching gnome polkit agent
 exec --no-startup-id "/usr/lib/polkit-gnome-authentication-agent-1"
 exec --no-startup-id "nm-applet"
-exec --no-startup-id "picom -b"
+# exec --no-startup-id "picom -b"
 exec --no-startup-id "flameshot"
 exec --no-startup-id "blueman-manager"
 exec --no-startup-id "pulseaudio --start"
@@ -284,7 +284,7 @@ exec --no-startup-id "pasystray"
 # bindsym --release ctrl+Print exec shutter -s -e --disable_systray -p default -n
 
 # vpn
-bindsym XF86Favorites exec "/home/fblaise/bin/toggle_vpn.sh"
+# bindsym XF86Favorites exec "/home/fblaise/bin/toggle_vpn.sh"
 
 
 # enable floating window for virtualbox
@@ -298,20 +298,20 @@ bindsym $mod+x move workspace to output left
 bindsym $mod+y move workspace to output down
 
 # wacom tablet/stylus on right screen
-exec --no-startup-id "xsetwacom set 'Wacom Intuos S Pen stylus' maptooutput 3840x2160+3840+0"
+# exec --no-startup-id "xsetwacom set 'Wacom Intuos S Pen stylus' maptooutput 3840x2160+3840+0"
 # wacom map to only the left half of the right screen above
-exec --no-startup-id "xsetwacom --set 'Wacom Intuos S Pen stylus' area 0 0 30400 9500"
+# exec --no-startup-id "xsetwacom --set 'Wacom Intuos S Pen stylus' area 0 0 30400 9500"
 
 # inkspace wacom mappings
 # map pad LEFT-LOW to SHIFT modifier
-exec --no-startup-id "xsetwacom --set 'Wacom Intuos S Pad pad' Button 1 key 'Shift_L'"
+# exec --no-startup-id "xsetwacom --set 'Wacom Intuos S Pad pad' Button 1 key 'Shift_L'"
 # map pad LEFT-HIGH to SPACE for tool toggle
-exec --no-startup-id "xsetwacom --set 'Wacom Intuos S Pad pad' Button 3 'key +space'"
+# exec --no-startup-id "xsetwacom --set 'Wacom Intuos S Pad pad' Button 3 'key +space'"
 # map pad RIGHT-LOW to ZOOM RESET
-exec --no-startup-id "xsetwacom --set 'Wacom Intuos S Pad pad' Button 8 'key 4'"
+# exec --no-startup-id "xsetwacom --set 'Wacom Intuos S Pad pad' Button 8 'key 4'"
 # map pad RIGHT-HIGH to ZOOM SELECTION
-exec --no-startup-id "xsetwacom --set 'Wacom Intuos S Pad pad' Button 9 'key z'"
+# exec --no-startup-id "xsetwacom --set 'Wacom Intuos S Pad pad' Button 9 'key z'"
 # map stylus upper left button to space for tool toggle
 # prevent crappy zoom when not wanted too
-exec --no-startup-id "xsetwacom --set 'Wacom Intuos S Pen stylus' Button 2 'key +space'"
-exec --no-startup-id "xsetwacom --set 'Wacom Intuos S Pen stylus' Button 3 'key +space'"
+# exec --no-startup-id "xsetwacom --set 'Wacom Intuos S Pen stylus' Button 2 'key +space'"
+# exec --no-startup-id "xsetwacom --set 'Wacom Intuos S Pen stylus' Button 3 'key +space'"
