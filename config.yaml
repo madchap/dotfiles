@@ -12,6 +12,7 @@ config:
   longkey: true
   showdiff: false
   workdir: ~/.config/dotdrop
+  minversion: 1.14.2
 dotfiles:
   f_alias:
     dst: ~/.alias
@@ -114,6 +115,9 @@ dotfiles:
   f_tigrc:
     src: tigrc
     dst: ~/.tigrc
+  f_config_sway_config:
+    src: config/sway/config
+    dst: ~/.config/sway/config
 dynvariables:
   v_os_type: uname
 profiles:
@@ -187,7 +191,7 @@ profiles:
   tower:
     dotfiles:
     - f_vimrc
-    - f_tigrc  
+    - f_tigrc
     - f_xinitrc
     - f_zshrc
     - f_xmodmap
@@ -213,7 +217,7 @@ profiles:
     dotfiles:
     - f_vimrc
     - f_xinitrc
-    - f_tigrc  
+    - f_tigrc
     - f_zshrc
     - f_xmodmap
     - f_tmux.conf
@@ -233,5 +237,6 @@ profiles:
     - f_curlrc
     - f_config_libinput-gestures.conf
     - f_gnupg_gpg-agent.conf
-trans_read:
+    - f_config_sway_config
+trans_install:
   gpg: gpg -q --for-your-eyes-only --no-tty -d {0} > {1}
