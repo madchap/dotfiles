@@ -118,6 +118,12 @@ dotfiles:
   f_config_sway_config:
     src: config/sway/config
     dst: ~/.config/sway/config
+  f_config_waybar_config.jsonc:
+    src: config/waybar/config.jsonc
+    dst: ~/.config/waybar/config.jsonc
+  f_config_waybar_style.css:
+    src: config/waybar/style.css
+    dst: ~/.config/waybar/style.css
 dynvariables:
   v_os_type: uname
 profiles:
@@ -238,5 +244,7 @@ profiles:
     - f_config_libinput-gestures.conf
     - f_gnupg_gpg-agent.conf
     - f_config_sway_config
+    - f_config_waybar_config.jsonc
+    - f_config_waybar_style.css
 trans_install:
   gpg: gpg -q --for-your-eyes-only --no-tty -d {0} > {1}
