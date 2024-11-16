@@ -64,7 +64,7 @@
             ""  // Icon: battery-empty
         ],
         "tooltip": true,
-        "tooltip-format": "Current battery draw: {power}w, {timeTo}. {cycles} cycles, {health}% healthy. "
+        "tooltip-format": "Current battery draw: {power}w, {timeTo} ({time}). {cycles} cycles, {health}% healthy. "
     },
 
     "clock": {

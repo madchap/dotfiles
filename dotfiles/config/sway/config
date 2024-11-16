@@ -32,8 +32,9 @@ floating_modifier $mod
 
 # start a terminal
 # bindsym $mod+Return exec i3-sensible-terminal
-bindsym $mod+Return exec dbus-launch /usr/bin/gnome-terminal
-# bindsym $mod+Return exec alacritty
+# bindsym $mod+Return exec dbus-launch /usr/bin/gnome-terminal
+# bindsym $mod+Return exec dbus-launch /usr/bin/alacritty
+bindsym $mod+Return exec alacritty
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -41,7 +42,7 @@ bindsym $mod+Shift+q kill
 # look at .Xresources
 bindsym $mod+space exec "rofi -show-icons -combi-modi window#drun -show combi"
 bindsym $mod+c exec --no-startup-id "rofi -plugin-path /usr/lib64/rofi -show calc -modi calc -no-show-match -no-sort > /dev/null"
-bindsym $mod+f exec --no-startup-id "xdg-open \\"$(locate home media | rofi -threads 0 -width 100 -dmenu -i -p \\"locate:\\")\\" "
+# bindsym $mod+f exec --no-startup-id "xdg-open \\"$(locate home media | rofi -threads 0 -width 100 -dmenu -i -p \\"locate:\\")\\" "
 
 # change focus
 # bindsym $mod+j focus left
@@ -74,7 +75,7 @@ bindsym $mod+v split h
 bindsym $mod+h split v
 
 # enter fullscreen mode for the focused container
-# bindsym $mod+f fullscreen toggle
+bindsym $mod+f fullscreen toggle
 
 # change container layout (stacked, tabbed, toggle split)
 bindsym $mod+s layout stacking
@@ -96,9 +97,9 @@ bindsym $mod+a focus parent
 # switch to workspace
 bindsym $mod+1 workspace 1: chats
 bindsym $mod+2 workspace 2: dev
-bindsym $mod+3 workspace 3: dojo
+bindsym $mod+3 workspace 3: ide
 bindsym $mod+4 workspace 4: read
-bindsym $mod+5 workspace 5: meetings
+bindsym $mod+5 workspace 5: 
 bindsym $mod+6 workspace 6: edu
 bindsym $mod+7 workspace 7: sides
 bindsym $mod+8 workspace 8
@@ -108,9 +109,9 @@ bindsym $mod+0 workspace 10: browse
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace 1: chats
 bindsym $mod+Shift+2 move container to workspace 2: dev
-bindsym $mod+Shift+3 move container to workspace 3: dojo
+bindsym $mod+Shift+3 move container to workspace 3: ide
 bindsym $mod+Shift+4 move container to workspace 4: read
-bindsym $mod+Shift+5 move container to workspace 5: meetings
+bindsym $mod+Shift+5 move container to workspace 5: 
 bindsym $mod+Shift+6 move container to workspace 6: edu
 bindsym $mod+Shift+7 move container to workspace 7: sides
 bindsym $mod+Shift+8 move container to workspace 8
@@ -154,7 +155,8 @@ bindsym $mod+r mode "resize"
 client.focused	#4c7899 #00ff00 #000000
 
 # mouse middle click kills window
-bindsym --release button2 kill
+# bindsym --release button2 kill
+bindsym button2 kill
 
 # remember last workspace
 workspace_auto_back_and_forth yes
@@ -187,10 +189,10 @@ output * bg ~/Pictures/i3_solarized_bg.png fill
 
 bindsym $mod+l exec "swaylock -f -c 000000"
 # bindsym $mod+Print exec "flameshot gui --clipboard"
-bindsym XF86Tools exec "grimshot copy area"
-bindsym $mod+XF86Tools exec "grimshot save area"
-bindsym Print exec "grimshot copy area"
-bindsym $mod+Print exec "grimshot save area"
+bindsym XF86Tools exec "grimshot --notify copy area"
+bindsym $mod+XF86Tools exec "grimshot --notify save area"
+bindsym Print exec "grimshot --notify copy area"
+bindsym $mod+Print exec "grimshot --notify save area"
 exec swayidle -w \
          timeout 300 'swaylock -f -c 000000' \
          timeout 600 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
@@ -198,16 +200,9 @@ exec swayidle -w \
 
 # clipman
 exec wl-paste -t text --watch clipman --notify store --histpath="~/.cache/clipman.json" --no-persist
-bindsym $mod+Shift+underscore exec clipman pick -t rofi --histpath="~/.cache/clipman.json"
+bindsym $mod+Shift+P exec clipman pick -t rofi --histpath="~/.cache/clipman.json"
 
-# watch out for plasma5-workspace, conflicting dbus notifications
-# exec --no-startup-id /usr/lib/xfce4/notifyd/xfce4-notifyd
 # NOTE: mako will start automatically from dbus when notification happens
-
-# libinput-gestures
-# exec --no-startup-id libinput-gestures -c ~/.config/sway/libgestures.conf
-# exec --no-startup-id "xinput set-prop 'SYNA8008:00 06CB:CE58 Touchpad' 'libinput Natural Scrolling Enabled' 1"
-# bindgesture swipe:3:right mod1+Left
 
 # map capslock to ctrl
 # exec --no-startup-id "sh ~/gitrepos/misc/setxkbmap"
@@ -249,7 +244,8 @@ exec --no-startup-id "waybar"
 # network manager
 # exec --no-startup-id "nmcli agent all"
 # Start launching gnome polkit agent
-exec --no-startup-id "/usr/lib/polkit-gnome-authentication-agent-1"
+# exec --no-startup-id "/usr/lib/polkit-gnome-authentication-agent-1"
+# exec --no-startup-id gnome-keyring-daemon --start --components=pkcs11,secrets
 # exec --no-startup-id "nm-applet"
 # exec --no-startup-id "picom -b"
  #exec --no-startup-id "flameshot"
@@ -260,16 +256,26 @@ exec --no-startup-id "pulseaudio --start"
 
 # for_window [class="^.*"] border pixel 3
 
-# enable floating window for virtualbox
+# enable floating windows
 #for_window [class="^VirtualBox$"] floating enable, move container to workspace 10
+for_window [app_id="(pavucontrol|psensor)"] floating enable
+for_window [app_id="firefox" title="Picture-in-Picture"] floating enable
+# chrome
+for_window [title="Picture-in-picture"] floating enable
 
 # assign some apps to some workspaces
 assign [class="^Signal$"] 1: chats
-assign [class="^VirtualBox$"] 9
+# assign [class="^VirtualBox$"] 9
 # assign [class="^(?i)remmina$"] 9
 #
 # move the whole workspace to the next output
 bindsym $mod+x move workspace to output left
 bindsym $mod+y move workspace to output down
 
-include @sysconfdir@/sway/config.d/*
+# include @sysconfdir@/sway/config.d/*
+
+# Trying to fix gnome-keyring... seems ok for seahorse, gnome-terminal.
+# alacritty.. still not working.
+exec --no-startup-id systemctl --user import-environment DISPLAY WAYLAND_DISPLAY
+exec --no-startup-id dbus-update-activation-environment --all
+

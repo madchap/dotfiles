@@ -73,9 +73,6 @@ dotfiles:
   f_vimrc-osx-defaults:
     dst: ~/.vimrc-osx-defaults
     src: vimrc-osx-defaults
-  f_vscode_user_settings_linux.json:
-    dst: ~/.config/Code/User/settings.json
-    src: Library/Application Support/Code/User/settings.json
   f_vscode_user_settings_mac.json:
     dst: ~/Library/Application Support/Code/User/settings.json
     src: Library/Application Support/Code/User/settings.json
@@ -124,6 +121,9 @@ dotfiles:
   f_config_waybar_style.css:
     src: config/waybar/style.css
     dst: ~/.config/waybar/style.css
+  f_config_code_user_settings.json:
+    src: config/Code/User/settings.json
+    dst: ~/.config/Code/User/settings.json
 dynvariables:
   v_os_type: uname
 profiles:
@@ -189,7 +189,6 @@ profiles:
     - f_config_powerline_colorschemes_tmux_default.json
     - f_config_powerline_themes_tmux_default.json
     - f_config_powerline_themes_vim_default.json
-    - f_vscode_user_settings_linux.json
     - f_rvmrc
     - f_curlrc
     - f_config_libinput-gestures.conf
@@ -213,7 +212,6 @@ profiles:
     - f_tmux.conf
     - f_config_powerline_colorschemes_tmux_default.json
     - f_config_powerline_themes_tmux_default.json
-    - f_vscode_user_settings_linux.json
     - f_config_powerline_themes_vim_default.json
     - f_rvmrc
     - f_curlrc
@@ -238,7 +236,6 @@ profiles:
     - f_config_powerline_colorschemes_tmux_default.json
     - f_config_powerline_themes_tmux_default.json
     - f_config_powerline_themes_vim_default.json
-    - f_vscode_user_settings_linux.json
     - f_rvmrc
     - f_curlrc
     - f_config_libinput-gestures.conf
@@ -246,5 +243,6 @@ profiles:
     - f_config_sway_config
     - f_config_waybar_config.jsonc
     - f_config_waybar_style.css
+    - f_config_code_user_settings.json
 trans_install:
   gpg: gpg -q --for-your-eyes-only --no-tty -d {0} > {1}

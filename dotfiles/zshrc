@@ -1,3 +1,10 @@
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
 # If you come from bash you might have to change your $PATH.
 # export TERM="xterm-256color"
 export LC_ALL="en_US.UTF-8"
@@ -5,14 +12,9 @@ export EDITOR="vim"
 export _Z_CMD=","
 export GOPATH=$HOME/go
 export NPM_PACKAGES=$HOME/.npm-packages
+export GEM_HOME=$HOME/.gems
 
-export PATH=$PATH:~/.local/bin:/usr/local/sbin:$NPM_PACKAGES/bin
-export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
-
-{%@@ if v_os_type == 'Darwin' @@%}
-# https://github.com/robbyrussell/oh-my-zsh/issues/6835#issuecomment-390216875
-ZSH_DISABLE_COMPFIX=true
-{%@@ endif @@%}
+export PATH=$PATH:/usr/local/sbin:$NPM_PACKAGES/bin:$GOPATH/bin:$GEM_HOME/bin
 
 source ~/.alias
 
@@ -25,57 +27,14 @@ ZSH_AUTOSUGGEST_STRATEGY=(history completion)
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 #ZSH_THEME="agnoster"
-typeset -g POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(kubecontext)
+# typeset -g POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(status context dir newline virtualenv vcs)
+# typeset -g POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(aws_prompt_info kubecontext)
 ZSH_THEME="powerlevel10k/powerlevel10k"
-POWERLEVEL9K_DISABLE_RPROMPT=false
-POWERLEVEL9K_PROMPT_ADD_NEWLINE=true
-POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(status context dir newline virtualenv vcs)
-POWERLEVEL9K_KUBECONTEXT_SHOW_ON_COMMAND='kubectl|helm|kubens|kubectx|oc|istioctl|kogito|k9s|helmfile'
+# POWERLEVEL9K_DISABLE_RPROMPT=false
+# POWERLEVEL9K_PROMPT_ADD_NEWLINE=true
+# POWERLEVEL9K_KUBECONTEXT_SHOW_ON_COMMAND='kubectl|helm|kubens|kubectx|oc|istioctl|kogito|k9s|helmfile'
+# POWERLEVEL9K_AWS_SHOW_ON_COMMAND='aws|awless|cdk|terraform|pulumi|terragrunt|aws-vault'
 
-{%@@ if v_os_type == 'Darwin' @@%}
-# will not fight to get this on my home machine....
-# powerlevel9k options
-DEFAULT_FOREGROUND=154 DEFAULT_BACKGROUND=008
-# # DEFAULT_SEP_FOREGROUND=023
-# DEFAULT_SEGMENT_SEP_LEFT="\uE0B4 "
-DEFAULT_SEGMENT_SEP_RIGHT="\uE0C7"
-# DEFAULT_COLOR=$DEFAULT_FOREGROUND
-#
-POWERLEVEL9K_MODE='nerdfont-complete'
-POWERLEVEL9K_DISABLE_RPROMPT=true
-POWERLEVEL9K_PROMPT_ADD_NEWLINE=true
-POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(status context dir newline virtualenv vcs)
-# POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(context dir newline virtualenv vcs)
-# POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(vi_mode background_jobs status time)
-POWERLEVEL9K_CONTEXT_DEFAULT_BACKGROUND="$DEFAULT_BACKGROUND"
-POWERLEVEL9K_CONTEXT_DEFAULT_FOREGROUND=006
-POWERLEVEL9K_VI_MODE_INSERT_BACKGROUND="$DEFAULT_BACKGROUND"
-POWERLEVEL9K_VI_MODE_NORMAL_BACKGROUND="$DEFAULT_BACKGROUND"
-# POWERLEVEL9K_DIR_DEFAULT_BACKGROUND="$DEFAULT_BACKGROUND"
-# POWERLEVEL9K_DIR_DEFAULT_FOREGROUND="$DEFAULT_FOREGROUND"
-# POWERLEVEL9K_DIR_HOME_FOREGROUND="$DEFAULT_FOREGROUND"
-# POWERLEVEL9K_DIR_HOME_BACKGROUND="$DEFAULT_BACKGROUND"
-# POWERLEVEL9K_DIR_HOME_SUBFOLDER_FOREGROUND="$DEFAULT_FOREGROUND"
-# POWERLEVEL9K_DIR_HOME_SUBFOLDER_BACKGROUND="$DEFAULT_BACKGROUND"
-# POWERLEVEL9K_TIME_BACKGROUND="$DEFAULT_BACKGROUND"
-# POWERLEVEL9K_TIME_FOREGROUND=006
-POWERLEVEL9K_STATUS_OK_BACKGROUND="$DEFAULT_BACKGROUND"
-POWERLEVEL9K_STATUS_ERROR_BACKGROUND="$DEFAULT_BACKGROUND"
-POWERLEVEL9K_PROMPT_ADD_NEWLINE=true
-# POWERLEVEL9K_LEFT_SEGMENT_SEPARATOR="$DEFAULT_SEGMENT_SEP_LEFT"
-# POWERLEVEL9K_LEFT_SUBSEGMENT_SEPARATOR=""
-# # POWERLEVEL9K_LEFT_SUBSEGMENT_SEPARATOR="%F{$(( $DEFAULT_SEP_FOREGROUND - 2 ))}|%f"
-POWERLEVEL9K_RIGHT_SEGMENT_SEPARATOR="$DEFAULT_SEGMENT_SEP_RIGHT"
-POWERLEVEL9K_RIGHT_SUBSEGMENT_SEPARATOR=""
-# # POWERLEVEL9K_RIGHT_SUBSEGMENT_SEPARATOR="%F{$(( $DEFAULT_SEP_FOREGROUND - 2 ))}|%f"
-# POWERLEVEL9K_VCS_CLEAN_BACKGROUND="$DEFAULT_BACKGROUND"
-# POWERLEVEL9K_VCS_CLEAN_FOREGROUND=blue
-# POWERLEVEL9K_VCS_MODIFIED_BACKGROUND="$DEFAULT_BACKGROUND"
-# POWERLEVEL9K_VCS_MODIFIED_FOREGROUND=red
-# POWERLEVEL9K_VCS_UNTRACKED_BACKGROUND="$DEFAULT_BACKGROUND"
-# POWERLEVEL9K_VCS_UNTRACKED_FOREGROUND=yellow
-# POWERLEVEL9K_ROOT_INDICATOR_FOREGROUND=magenta
-{%@@ endif @@%}
 
 # Uncomment the following line to use case-sensitive completion.
 CASE_SENSITIVE="true"
@@ -100,7 +59,7 @@ CASE_SENSITIVE="true"
 # ENABLE_CORRECTION="true"
 
 # Uncomment the following line to display red dots whilst waiting for completion.
-# COMPLETION_WAITING_DOTS="true"
+COMPLETION_WAITING_DOTS="true"
 
 # Uncomment the following line if you want to disable marking untracked files
 # under VCS as dirty. This makes repository status check for large repositories
@@ -119,7 +78,7 @@ CASE_SENSITIVE="true"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(z git zsh-autosuggestions vault docker gpg-agent)
+plugins=(z git zsh-autosuggestions docker gpg-agent aws)
 
 source $ZSH/oh-my-zsh.sh
 # source ~/tmuxinator.zsh
@@ -144,21 +103,11 @@ bindkey -M vicmd v edit-command-line
 
 export KEYTIMEOUT=20
 
+setopt NO_NOMATCH  # globs like bash
 setopt hist_ignore_all_dups
 # run fzf install for that to be populated.
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-{%@@ if v_os_type == 'Darwin' @@%}
-source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-export SSH_AUTH_SOCKET=$HOME/.gnupg/S.gpg-agent.ssh
-echo "SSH_AUTH_SOCK is set to $(readlink $SSH_AUTH_SOCK)"
-gcloud_path="/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc"
-[[ -f $gcloud_path ]] && source $gcloud_path
-gcloud_completion="/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc"
-[[ -f $gcloud_completion ]] && source $gcloud_completion
-[[ -f /usr/local/bin/az ]] && source /usr/local/etc/bash_completion.d/az
-{%@@ else @@%}
 xset -b
 source /home/fblaise/.oh-my-zsh/custom/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 source /home/fblaise/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
@@ -166,11 +115,65 @@ source /home/fblaise/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting/zsh-synta
 export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
 source /usr/bin/virtualenvwrapper
 
-echo "SSH_AUTH_SOCK is set to $(echo $SSH_AUTH_SOCK)"
-{%@@ endif @@%}
+# echo "SSH_AUTH_SOCK is set to $(echo $SSH_AUTH_SOCK)"
 
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=243'
 echo UPDATESTARTUPTTY | gpg-connect-agent >/dev/null 
 
 # fpath=( ~/.zsh_functions "${fpath[@]}" )
 # autoload -Uz list-vault-keys
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+alias fabric='/home/fblaise/.cache/pypoetry/virtualenvs/fabric-C1e6dlYp-py3.11/bin/fabric'
+
+alias fabric-api='/home/fblaise/.cache/pypoetry/virtualenvs/fabric-C1e6dlYp-py3.11/bin/fabric-api'
+
+alias fabric-webui='/home/fblaise/.cache/pypoetry/virtualenvs/fabric-C1e6dlYp-py3.11/bin/fabric-webui'
+alias extract_references='fabric --pattern extract_references'
+alias philocapsulate='fabric --pattern philocapsulate'
+alias ai='fabric --pattern ai'
+alias write_semgrep_rule='fabric --pattern write_semgrep_rule'
+alias summarize_pull-requests='fabric --pattern summarize_pull-requests'
+alias summarize_micro='fabric --pattern summarize_micro'
+alias improve_prompt='fabric --pattern improve_prompt'
+alias clean_text='fabric --pattern clean_text'
+alias extract_sponsors='fabric --pattern extract_sponsors'
+alias create_npc='fabric --pattern create_npc'
+alias summarize_rpg_session='fabric --pattern summarize_rpg_session'
+alias analyze_prose_json='fabric --pattern analyze_prose_json'
+alias analyze_spiritual_text='fabric --pattern analyze_spiritual_text'
+alias rate_value='fabric --pattern rate_value'
+alias analyze_threat_report_trends='fabric --pattern analyze_threat_report_trends'
+alias extract_poc='fabric --pattern extract_poc'
+alias extract_wisdom='fabric --pattern extract_wisdom'
+alias compare_and_contrast='fabric --pattern compare_and_contrast'
+alias analyze_incident='fabric --pattern analyze_incident'
+alias analyze_claims='fabric --pattern analyze_claims'
+alias extract_recommendations='fabric --pattern extract_recommendations'
+alias label_and_rate='fabric --pattern label_and_rate'
+alias create_logo='fabric --pattern create_logo'
+alias summarize='fabric --pattern summarize'
+alias write_essay='fabric --pattern write_essay'
+alias rate_content='fabric --pattern rate_content'
+alias improve_writing='fabric --pattern improve_writing'
+alias summarize_newsletter='fabric --pattern summarize_newsletter'
+alias explain_code='fabric --pattern explain_code'
+alias create_aphorisms='fabric --pattern create_aphorisms'
+alias extract_videoid='fabric --pattern extract_videoid'
+alias extract_article_wisdom='fabric --pattern extract_article_wisdom'
+alias check_agreement='fabric --pattern check_agreement'
+alias analyze_prose='fabric --pattern analyze_prose'
+alias analyze_paper='fabric --pattern analyze_paper'
+alias explain_docs='fabric --pattern explain_docs'
+alias create_video_chapters='fabric --pattern create_video_chapters'
+alias analyze_threat_report='fabric --pattern analyze_threat_report'
+alias agility_story='fabric --pattern agility_story'
+if [ -f "/home/fblaise/.config/fabric/fabric-bootstrap.inc" ]; then . "/home/fblaise/.config/fabric/fabric-bootstrap.inc"; fi
+# source '/home/fblaise/.nvm/versions/node/v18.16.1/lib/node_modules/@hyperupcall/autoenv/activate.sh'
+eval "$(direnv hook zsh)"
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
