@@ -124,10 +124,13 @@ dotfiles:
   f_config_code_user_settings.json:
     src: config/Code/User/settings.json
     dst: ~/.config/Code/User/settings.json
+  f_config_ghostty_config:
+    src: config/ghostty/config
+    dst: ~/.config/ghostty/config
 dynvariables:
   v_os_type: uname
 profiles:
-  TR-C02FP21SMD6R:
+  FBI-M4.local:
     dotfiles:
     - f_vimrc
     - f_tigrc
@@ -135,7 +138,6 @@ profiles:
     - f_tmux.conf
     - f_alias
     - f_tmux-macos.conf
-    - f_karabiner.json
     - f_wakeup
     - f_sleep
     - f_homebrew.gpg.gpg-agent.plist
@@ -149,6 +151,7 @@ profiles:
     - f_rvmrc
     - f_curlrc
     - f_tigrc
+    - f_config_ghostty_config
   mbp15bee.local:
     dotfiles:
     - f_vimrc
